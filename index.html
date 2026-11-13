@@ -437,8 +437,8 @@
         <div>
           <div class="relative aspect-[3/4] bg-[#4E4842] overflow-hidden group">
             <img
-              data-base="foto-6-leg-canelada-top-douglas"
-              src="foto-6-leg-canelada-top-douglas.jpg.jpg"
+              data-base="foto-6-top-douglas-legging-canelada,foto-6-leg-canelada-top-douglas"
+              src="foto-6-top-douglas-legging-canelada.jpg"
               alt="Look Legging Canelada"
               class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
@@ -774,26 +774,35 @@
 
   <!-- Script de Filtro do Catálogo e Resolução Automática das Fotos -->
   <script>
-    // Tenta carregar automaticamente todas as variações de nome/extensão possíveis para cada foto
-    document.querySelectorAll('.catalog-img').forEach((img, index) => {
-      const base = img.getAttribute('data-base');
-      const altNames = [
-        base + '.jpg.jpg',
-        base + '.jpg',
-        base + '.jpeg',
-        base + '.png',
-        base + '.JPG',
-        'foto-' + (index + 1) + '.jpg',
-        'foto-' + (index + 1) + '.jpg.jpg'
-      ];
-      let idx = 0;
+    // Busca automaticamente nas branches main/master e variações de nome no GitHub e local
+    const repoBases = [
+      '',
+      'https://raw.githubusercontent.com/FabricioM23/siteEstiloFitness/main/',
+      'https://raw.githubusercontent.com/FabricioM23/siteEstiloFitness/master/'
+    ];
+    const exts = ['.jpg', '.jpg.jpg', '.jpeg', '.png', '_5.jpg', '.jpg_5.jpg'];
 
-      img.addEventListener('error', () => {
-        idx++;
-        if (idx < altNames.length) {
-          img.src = altNames[idx];
-        }
+    document.querySelectorAll('.catalog-img').forEach((img) => {
+      const bases = img.getAttribute('data-base').split(',');
+      const candidates = [];
+      repoBases.forEach(prefix => {
+        bases.forEach(base => {
+          exts.forEach(ext => {
+            const url = prefix + base.trim() + ext;
+            if (url !== img.getAttribute('src')) candidates.push(url);
+          });
+        });
       });
+
+      let idx = 0;
+      const tryNext = () => {
+        if (idx < candidates.length) {
+          img.src = candidates[idx++];
+        }
+      };
+
+      img.addEventListener('error', tryNext);
+      if (img.complete && img.naturalWidth === 0) tryNext();
     });
 
     const filterButtons = document.querySelectorAll('.filter-btn');
