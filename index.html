@@ -44,7 +44,6 @@
     .card-shadow {
       box-shadow: 0 12px 32px -12px rgba(133, 70, 66, 0.14);
     }
-    /* Animação suave do acordeão FAQ */
     details > summary {
       list-style: none;
     }
@@ -63,10 +62,8 @@
   <!-- Navbar -->
   <header class="sticky top-0 z-40 bg-brand-bg/95 backdrop-blur-md border-b border-brand-blushDark/60">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <!-- Logo Oficial Reproduzida com Alta Precisão na Navbar -->
       <a href="#inicio" class="flex items-center gap-3.5 group">
         <div class="w-14 h-14 rounded-full bg-[#F7DFDC] shadow-sm flex items-center justify-center p-1 group-hover:scale-105 transition-transform border border-brand-rose/25">
-          <!-- SVG Fiel à Logo Estilo Fitness (Monograma EF, Curva, Florais e Haltere) -->
           <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="roseGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -77,36 +74,28 @@
               <path id="topArc" d="M 38,100 A 62,62 0 1,1 162,100" />
               <path id="bottomArc" d="M 36,105 A 64,64 0 0,0 164,105" />
             </defs>
-            <!-- Círculo Externo -->
             <circle cx="100" cy="100" r="76" fill="none" stroke="url(#roseGoldGrad)" stroke-width="2.2" stroke-dasharray="395 35 50 20"/>
-            <!-- Texto Curvo Superior: ESTILO -->
             <text fill="#6E3532" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="600" letter-spacing="4.5">
               <textPath href="#topArc" startOffset="50%" text-anchor="middle">ESTILO</textPath>
             </text>
-            <!-- Texto Curvo Inferior: FITNESS -->
             <text fill="#6E3532" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="4">
               <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">FITNESS</textPath>
             </text>
-            <!-- Monograma Central EF -->
             <text x="54" y="132" fill="url(#roseGoldGrad)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">E</text>
             <text x="96" y="132" fill="url(#roseGoldGrad)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">F</text>
-            <!-- Onda/Curva Fluida que atravessa o EF -->
             <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="url(#roseGoldGrad)" stroke-width="2.6" stroke-linecap="round"/>
-            <!-- Ramo Floral Superior Direito -->
             <g transform="translate(162, 34) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
               <path d="M 8,45 Q 12,22 22,8"/>
               <path d="M 12,32 Q 24,26 30,18"/>
               <ellipse cx="23" cy="6" rx="6" ry="9" transform="rotate(25 23 6)" fill="#E6A9A4" fill-opacity="0.5"/>
               <ellipse cx="32" cy="17" rx="5" ry="7" transform="rotate(45 32 17)" fill="#E6A9A4" fill-opacity="0.5"/>
             </g>
-            <!-- Ramo Floral Inferior Esquerdo -->
             <g transform="translate(12, 122) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
               <path d="M 28,42 Q 18,22 8,10"/>
               <path d="M 22,30 Q 10,28 4,22"/>
               <ellipse cx="7" cy="8" rx="6" ry="9" transform="rotate(-30 7 8)" fill="#E6A9A4" fill-opacity="0.5"/>
               <ellipse cx="3" cy="21" rx="4.5" ry="6.5" transform="rotate(-50 3 21)" fill="#E6A9A4" fill-opacity="0.5"/>
             </g>
-            <!-- Haltere (Dumbbell) Inferior Direito -->
             <g transform="translate(142, 134) rotate(-35)" stroke="#6E3532" fill="#F7DFDC" stroke-width="1.8">
               <rect x="-14" y="-2" width="28" height="4" rx="1"/>
               <rect x="-18" y="-9" width="4" height="18" rx="1.5"/>
@@ -177,7 +166,6 @@
       <!-- Card de Identidade e Logo em Destaque no Hero -->
       <div class="lg:col-span-5">
         <div class="bg-[#F7DFDC] p-8 sm:p-10 rounded-3xl border border-brand-rose/25 card-shadow text-center space-y-5 relative overflow-hidden">
-          <!-- Logo Grande Central -->
           <div class="w-44 h-44 mx-auto">
             <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
               <defs>
@@ -236,7 +224,7 @@
     </div>
   </section>
 
-  <!-- Catálogo Completo (Na Ordem Exata dos Modelos Enviados) -->
+  <!-- Catálogo Completo (Apenas os 5 Modelos Exatos) -->
   <section id="catalogo" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6">
     <div class="text-center max-w-2xl mx-auto space-y-3 mb-10">
       <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Provador Real Estilo Fitness</span>
@@ -262,35 +250,19 @@
       </button>
     </div>
 
-    <!-- Grade de Produtos na Ordem Solicitada -->
+    <!-- Grade de 6 Produtos -->
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
 
-      <!-- 1. Top Modelo Douglas - Marrom: R$137,00 (Foto 1) -->
+      <!-- 1. Top Modelo Douglas - Marrom: R$137,00 -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="shorts">
         <div>
           <div class="relative aspect-[3/4] bg-[#5C3328] overflow-hidden group">
             <img
-              src="foto-1-douglas-marrom.jpg"
-              alt="Top Modelo Douglas - Marrom vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-1-douglas-marrom"
+              src="foto-1-douglas-marrom.jpg.jpg"
+              alt="Top Modelo Douglas - Marrom"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#5E352A] via-[#6E4033] to-[#4A281F] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold uppercase">Foto 01 • Provador</span>
-                <span class="bg-white text-[#5E352A] text-xs font-bold px-2.5 py-1 rounded-full">Marrom</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Top Modelo Douglas - Marrom</p>
-                <p class="text-xs text-white/80 max-w-[220px] mx-auto">Modelagem sutiã franzido + Short sem costura frontal</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/25 py-1.5 rounded-lg">Salve a foto 1 como <strong>foto-1-douglas-marrom.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur text-brand-ink text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-              Sem Costura Frontal
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
@@ -316,36 +288,25 @@
         </div>
       </article>
 
-      <!-- 2. Modelo Azul - R$169,90 por R$119,90 (Foto 2) -->
+      <!-- 2. Modelo Azul - R$169,90 por R$119,90 -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings ofertas">
         <div>
           <div class="relative aspect-[3/4] bg-[#335C81] overflow-hidden group">
             <img
-              src="foto-2-modelo-azul.jpg"
-              alt="Modelo Azul vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-2-modelo-azul"
+              src="foto-2-modelo-azul.jpg.jpg"
+              alt="Modelo Azul"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#335C81] via-[#43719B] to-[#264663] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-amber-400 text-brand-ink px-3 py-1 rounded-full text-[11px] font-extrabold uppercase">🔥 Oferta Especial</span>
-                <span class="bg-white text-[#335C81] text-xs font-bold px-2.5 py-1 rounded-full">Azul</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Modelo Azul</p>
-                <p class="text-xs text-white/85 max-w-[220px] mx-auto">Top nadador + Calça Legging cintura alta modeladora</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/25 py-1.5 rounded-lg">Salve a foto 2 como <strong>foto-2-modelo-azul.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-amber-400 text-brand-ink text-[11px] font-extrabold px-3 py-1 rounded-full shadow-sm uppercase">
-              🔥 Oferta Especial
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Modelo Azul</h3>
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-serif text-2xl font-bold text-brand-ink">Modelo Azul</h3>
+              <span class="bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+                Oferta especial
+              </span>
+            </div>
             <p class="text-sm text-brand-muted leading-relaxed">
               Conjunto queridinho com calça legging de cós alto anatômico e top nadador confortável. Disponível também em outras cores sob consulta.
             </p>
@@ -370,32 +331,16 @@
         </div>
       </article>
 
-      <!-- 3. Top Modelo Rosa - R$137,00 (Foto 3) -->
+      <!-- 3. Top Modelo Rosa - R$137,00 -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="shorts">
         <div>
           <div class="relative aspect-[3/4] bg-[#8E1549] overflow-hidden group">
             <img
-              src="foto-3-top-modelo-rosa.jpg"
-              alt="Top Modelo Rosa vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-3-top-modelo-rosa"
+              src="foto-3-top-modelo-rosa.jpg.jpg"
+              alt="Top Modelo Rosa"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#96184E] via-[#B52864] to-[#73103A] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold uppercase">Foto 03 • Provador</span>
-                <span class="bg-white text-[#96184E] text-xs font-bold px-2.5 py-1 rounded-full">Rosa Berry</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Top Modelo Rosa</p>
-                <p class="text-xs text-white/85 max-w-[220px] mx-auto">Top sustentação sutiã + Short sem costura frontal</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/25 py-1.5 rounded-lg">Salve a foto 3 como <strong>foto-3-top-modelo-rosa.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur text-brand-ink text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-              Sem Costura Frontal
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
@@ -421,32 +366,16 @@
         </div>
       </article>
 
-      <!-- 4. Conjunto Assimétrico Preto com Branco (Foto 4 - Provador) -->
+      <!-- 4. Conjunto Assimétrico Black -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
         <div>
           <div class="relative aspect-[3/4] bg-[#1C1C20] overflow-hidden group">
             <img
-              src="foto-4-assimetrico-preto.jpg"
-              alt="Conjunto Assimétrico Preto com viés branco vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-4-assimetrico-preto"
+              src="foto-4-assimetrico-preto.jpg.jpg"
+              alt="Conjunto Assimétrico Black"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#1C1C20] via-[#2B2B30] to-[#141417] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold uppercase">Provador EF</span>
-                <span class="bg-white text-black text-xs font-bold px-2.5 py-1 rounded-full">Preto + Branco</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Conjunto Assimétrico Black</p>
-                <p class="text-xs text-white/80 max-w-[220px] mx-auto">Top um ombro só + Legging cós bicolor</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/30 py-1.5 rounded-lg">Salve a foto 4 como <strong>foto-4-assimetrico-preto.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur text-brand-ink text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-              Provador Real
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
@@ -464,44 +393,28 @@
           </div>
         </div>
         <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Preto%20com%20faixa%20branca." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
+          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Black." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
             Consultar no WhatsApp
           </a>
         </div>
       </article>
 
-      <!-- 5. Conjunto Assimétrico Azul Marinho com Viés Menta (Foto 5) -->
+      <!-- 5. Conjunto Assimétrico Navy -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
         <div>
           <div class="relative aspect-[3/4] bg-[#162347] overflow-hidden group">
             <img
-              src="foto-5-assimetrico-marinho.jpg"
-              alt="Conjunto Assimétrico Azul Marinho com detalhes menta vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-5-assimetrico-marinho"
+              src="foto-5-assimetrico-marinho.jpg.jpg"
+              alt="Conjunto Assimétrico Navy"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#162347] via-[#213466] to-[#101A36] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold uppercase">Design Exclusivo</span>
-                <span class="bg-[#A8D5BA] text-[#162347] text-xs font-bold px-2.5 py-1 rounded-full">Marinho + Menta</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Conjunto Assimétrico Navy</p>
-                <p class="text-xs text-white/80 max-w-[220px] mx-auto">Top um ombro só + Legging cós anatômico</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/30 py-1.5 rounded-lg">Salve a foto 5 como <strong>foto-5-assimetrico-marinho.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur text-brand-ink text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-              Marinho & Menta
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
             <h3 class="font-serif text-2xl font-bold text-brand-ink">Conjunto Assimétrico Navy</h3>
             <p class="text-sm text-brand-muted leading-relaxed">
-              Combinação sofisticada de azul marinho profundo com acabamento em verde menta suave. Ajuste firme e confortável para qualquer treino.
+              Combinação sofisticada de azul marinho profundo com acabamento em verde menta suave, cós alto anatômico e zero transparência.
             </p>
             <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
               <div>
@@ -513,38 +426,22 @@
           </div>
         </div>
         <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Azul%20Marinho%20com%20menta." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
+          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Navy." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
             Consultar no WhatsApp
           </a>
         </div>
       </article>
 
-      <!-- 6. Combinação Top Douglas Marinho + Legging Canelada Taupe (Foto 6) -->
+      <!-- 6. Look Legging Canelada -->
       <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
         <div>
           <div class="relative aspect-[3/4] bg-[#4E4842] overflow-hidden group">
             <img
-              src="foto-6-leg-canelada-top-douglas.jpg"
-              alt="Top Douglas Azul Marinho com Legging Canelada Taupe vestido na modelo"
-              class="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              data-base="foto-6-leg-canelada-top-douglas"
+              src="foto-6-leg-canelada-top-douglas.jpg.jpg"
+              alt="Look Legging Canelada"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
             />
-            <div class="hidden w-full h-full flex-col justify-between p-6 bg-gradient-to-b from-[#2A3B54] via-[#4D4A46] to-[#696058] text-white">
-              <div class="flex justify-between items-center">
-                <span class="bg-white/20 backdrop-blur px-3 py-1 rounded-full text-[11px] font-bold uppercase">Mix & Match</span>
-                <span class="bg-white text-brand-ink text-xs font-bold px-2.5 py-1 rounded-full">Legging Canelada</span>
-              </div>
-              <div class="my-auto text-center space-y-2">
-                <div class="w-16 h-16 mx-auto rounded-full bg-white/15 border border-white/30 flex items-center justify-center font-serif text-2xl font-bold">EF</div>
-                <p class="font-serif text-2xl font-bold">Top Douglas + Legging Canelada</p>
-                <p class="text-xs text-white/85 max-w-[220px] mx-auto">Seu treino. Seu look. Sua identidade.</p>
-              </div>
-              <p class="text-[11px] text-center bg-black/30 py-1.5 rounded-lg">Salve a foto 6 como <strong>foto-6-leg-canelada-top-douglas.jpg</strong></p>
-            </div>
-
-            <span class="absolute top-3.5 left-3.5 bg-white/95 backdrop-blur text-brand-ink text-[11px] font-bold px-3 py-1 rounded-full shadow-sm">
-              Tecido Canelado
-            </span>
           </div>
 
           <div class="p-6 space-y-3">
@@ -565,7 +462,7 @@
           </div>
         </div>
         <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20look%20com%20Legging%20Canelada%20e%20Top%20Douglas." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
+          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20Look%20Legging%20Canelada." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
             Consultar no WhatsApp
           </a>
         </div>
@@ -578,7 +475,6 @@
   <section id="sobre" class="py-16 sm:py-24 bg-white border-y border-brand-blushDark/50">
     <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-center">
       <div class="bg-[#F7DFDC] rounded-3xl p-8 sm:p-12 border border-brand-rose/20 relative text-center">
-        <!-- Logo Oficial no Bloco Sobre -->
         <div class="w-36 h-36 mx-auto mb-6">
           <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
@@ -876,8 +772,30 @@
     <span class="font-semibold text-sm hidden sm:inline">Falar no WhatsApp</span>
   </a>
 
-  <!-- Script de Filtro do Catálogo -->
+  <!-- Script de Filtro do Catálogo e Resolução Automática das Fotos -->
   <script>
+    // Tenta carregar automaticamente todas as variações de nome/extensão possíveis para cada foto
+    document.querySelectorAll('.catalog-img').forEach((img, index) => {
+      const base = img.getAttribute('data-base');
+      const altNames = [
+        base + '.jpg.jpg',
+        base + '.jpg',
+        base + '.jpeg',
+        base + '.png',
+        base + '.JPG',
+        'foto-' + (index + 1) + '.jpg',
+        'foto-' + (index + 1) + '.jpg.jpg'
+      ];
+      let idx = 0;
+
+      img.addEventListener('error', () => {
+        idx++;
+        if (idx < altNames.length) {
+          img.src = altNames[idx];
+        }
+      });
+    });
+
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
 
