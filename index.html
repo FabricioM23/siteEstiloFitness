@@ -5,28 +5,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Estilo Fitness VR | Moda Fitness Feminina</title>
   
-  <!-- Favicon (Ícone da Aba do Navegador com a Logo Oficial Estilo Fitness VR) -->
+  <!-- Favicon Oficial Estilo Fitness VR -->
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='96' fill='%23F7DFDC'/%3E%3Ccircle cx='100' cy='100' r='82' fill='none' stroke='%236E3532' stroke-width='4'/%3E%3Ctext x='50' y='132' fill='%236E3532' font-family='Georgia, serif' font-size='84' font-weight='bold'%3EE%3C/text%3E%3Ctext x='96' y='132' fill='%236E3532' font-family='Georgia, serif' font-size='84' font-weight='bold'%3EF%3C/text%3E%3Cpath d='M 18,112 Q 60,128 100,104 T 182,96' fill='none' stroke='%236E3532' stroke-width='4' stroke-linecap='round'/%3E%3C/svg%3E" />
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             brand: {
-              bg: '#FDF8F7',
+              bg: '#FFFFFF',
+              surface: '#FAF7F6',
               blush: '#F7DFDC',
               blushLight: '#FCEEEB',
               blushDark: '#EBC7C2',
               rose: '#854642',
               roseDark: '#683330',
-              gold: '#B3736E',
-              ink: '#2D2222',
-              muted: '#6B5857'
+              ink: '#1A1717',
+              muted: '#6E6463'
             }
           },
           fontFamily: {
@@ -38,11 +38,12 @@
     }
   </script>
   <style>
-    .rose-gradient {
-      background: linear-gradient(135deg, #854642 0%, #B3736E 50%, #733936 100%);
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
     }
-    .card-shadow {
-      box-shadow: 0 12px 32px -12px rgba(133, 70, 66, 0.14);
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
     }
     details > summary {
       list-style: none;
@@ -54,428 +55,1247 @@
 </head>
 <body class="bg-brand-bg text-brand-ink font-sans antialiased selection:bg-brand-blush selection:text-brand-rose">
 
-  <!-- Barra de Aviso Superior -->
-  <div class="rose-gradient text-white text-xs sm:text-sm py-2.5 px-4 text-center font-medium tracking-wide">
-    🚚 Entrega GRÁTIS em Volta Redonda, Barra Mansa e Resende • Pagamento via PIX, Dinheiro ou Cartão
+  <!-- Topbar Rotativa / Informativa -->
+  <div class="bg-brand-ink text-white text-[11px] sm:text-xs py-2.5 px-4 text-center tracking-[0.14em] uppercase font-medium">
+    ENTREGA GRÁTIS EM VOLTA REDONDA, BARRA MANSA E RESENDE • WHATSAPP: (24) 99828-6508
   </div>
 
-  <!-- Navbar -->
-  <header class="sticky top-0 z-40 bg-brand-bg/95 backdrop-blur-md border-b border-brand-blushDark/60">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
-      <a href="#inicio" class="flex items-center gap-3.5 group">
-        <div class="w-14 h-14 rounded-full bg-[#F7DFDC] shadow-sm flex items-center justify-center p-1 group-hover:scale-105 transition-transform border border-brand-rose/25">
+  <!-- Header Minimalista & Editorial -->
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-200/80 transition-all">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 h-20 flex items-center justify-between gap-4">
+      
+      <!-- Menu Esquerdo (Desktop) -->
+      <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-[0.14em] text-brand-ink/80">
+        <a href="#catalogo" class="hover:text-brand-rose transition-colors">Coleção (27)</a>
+        <a href="javascript:void(0)" onclick="filtrarCategoria('shorts')" class="hover:text-brand-rose transition-colors">Conjuntos Short</a>
+        <a href="javascript:void(0)" onclick="filtrarCategoria('leggings')" class="hover:text-brand-rose transition-colors">Conjuntos Legging</a>
+        <a href="javascript:void(0)" onclick="filtrarCategoria('ofertas')" class="text-brand-rose hover:opacity-80 transition-opacity">Oferta Especial</a>
+        <a href="#sobre" class="hover:text-brand-rose transition-colors">A Marca</a>
+      </nav>
+
+      <!-- Menu Mobile Hamburguer -->
+      <button id="mobile-menu-btn" aria-label="Abrir Menu" class="lg:hidden p-2 -ml-2 text-brand-ink hover:text-brand-rose">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25H12" />
+        </svg>
+      </button>
+
+      <!-- Logo Centralizada -->
+      <a href="#inicio" class="flex items-center gap-3 group mx-auto lg:mx-0">
+        <div class="w-11 h-11 rounded-full bg-[#F7DFDC] flex items-center justify-center p-0.5 border border-brand-rose/20 group-hover:scale-105 transition-transform">
           <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="roseGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stop-color="#6E3532"/>
-                <stop offset="50%" stop-color="#B06E69"/>
-                <stop offset="100%" stop-color="#6E3532"/>
-              </linearGradient>
-              <path id="topArc" d="M 38,100 A 62,62 0 1,1 162,100" />
-              <path id="bottomArc" d="M 36,105 A 64,64 0 0,0 164,105" />
-            </defs>
-            <circle cx="100" cy="100" r="76" fill="none" stroke="url(#roseGoldGrad)" stroke-width="2.2" stroke-dasharray="395 35 50 20"/>
-            <text fill="#6E3532" font-family="'Plus Jakarta Sans', sans-serif" font-size="13.5" font-weight="600" letter-spacing="4.5">
-              <textPath href="#topArc" startOffset="50%" text-anchor="middle">ESTILO</textPath>
-            </text>
-            <text fill="#6E3532" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="4">
-              <textPath href="#bottomArc" startOffset="50%" text-anchor="middle">FITNESS</textPath>
-            </text>
-            <text x="54" y="132" fill="url(#roseGoldGrad)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">E</text>
-            <text x="96" y="132" fill="url(#roseGoldGrad)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">F</text>
-            <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="url(#roseGoldGrad)" stroke-width="2.6" stroke-linecap="round"/>
-            <g transform="translate(162, 34) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
-              <path d="M 8,45 Q 12,22 22,8"/>
-              <path d="M 12,32 Q 24,26 30,18"/>
-              <ellipse cx="23" cy="6" rx="6" ry="9" transform="rotate(25 23 6)" fill="#E6A9A4" fill-opacity="0.5"/>
-              <ellipse cx="32" cy="17" rx="5" ry="7" transform="rotate(45 32 17)" fill="#E6A9A4" fill-opacity="0.5"/>
-            </g>
-            <g transform="translate(12, 122) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
-              <path d="M 28,42 Q 18,22 8,10"/>
-              <path d="M 22,30 Q 10,28 4,22"/>
-              <ellipse cx="7" cy="8" rx="6" ry="9" transform="rotate(-30 7 8)" fill="#E6A9A4" fill-opacity="0.5"/>
-              <ellipse cx="3" cy="21" rx="4.5" ry="6.5" transform="rotate(-50 3 21)" fill="#E6A9A4" fill-opacity="0.5"/>
-            </g>
-            <g transform="translate(142, 134) rotate(-35)" stroke="#6E3532" fill="#F7DFDC" stroke-width="1.8">
-              <rect x="-14" y="-2" width="28" height="4" rx="1"/>
-              <rect x="-18" y="-9" width="4" height="18" rx="1.5"/>
-              <rect x="-22" y="-7" width="3.5" height="14" rx="1"/>
-              <rect x="14" y="-9" width="4" height="18" rx="1.5"/>
-              <rect x="18.5" y="-7" width="3.5" height="14" rx="1"/>
-            </g>
+            <circle cx="100" cy="100" r="78" fill="none" stroke="#6E3532" stroke-width="2.5"/>
+            <text x="54" y="132" fill="#6E3532" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">E</text>
+            <text x="96" y="132" fill="#6E3532" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">F</text>
+            <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="#6E3532" stroke-width="3" stroke-linecap="round"/>
           </svg>
         </div>
-        <div>
-          <span class="font-serif text-xl sm:text-2xl font-bold text-brand-rose tracking-tight block leading-none">Estilo Fitness VR</span>
-          <span class="text-[11px] text-brand-muted tracking-wider uppercase font-medium">Linda, estilosa e endorfinada</span>
+        <div class="text-left">
+          <span class="font-serif text-2xl sm:text-[26px] font-bold tracking-tight text-brand-ink block leading-none">ESTILO FITNESS</span>
+          <span class="text-[9px] uppercase tracking-[0.28em] text-brand-rose font-semibold block mt-0.5">Volta Redonda</span>
         </div>
       </a>
 
-      <!-- Links Desktop -->
-      <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-brand-ink/80">
-        <a href="#inicio" class="hover:text-brand-rose transition-colors">Início</a>
-        <a href="#catalogo" class="hover:text-brand-rose transition-colors">Catálogo</a>
-        <a href="#sobre" class="hover:text-brand-rose transition-colors">Sobre</a>
-        <a href="#diferenciais" class="hover:text-brand-rose transition-colors">Diferenciais</a>
-        <a href="#depoimentos" class="hover:text-brand-rose transition-colors">Depoimentos</a>
-        <a href="#faq" class="hover:text-brand-rose transition-colors">Dúvidas (FAQ)</a>
-        <a href="#localizacao" class="hover:text-brand-rose transition-colors">Entrega & Local</a>
-      </nav>
-
-      <!-- Ações -->
-      <div class="flex items-center gap-2.5">
-        <a href="https://instagram.com/estilofitnessvr" target="_blank" rel="noopener" aria-label="Instagram Estilo Fitness VR" class="p-2.5 rounded-full bg-brand-blush text-brand-rose hover:bg-brand-blushDark transition-colors">
+      <!-- Ações Direita -->
+      <div class="flex items-center gap-3 sm:gap-5">
+        <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="hidden md:inline-block text-xs font-semibold uppercase tracking-[0.14em] text-brand-rose hover:opacity-80 transition-opacity">
+          Catálogo WhatsApp
+        </a>
+        <a href="https://instagram.com/estilofitnessvr" target="_blank" rel="noopener" aria-label="Instagram" class="text-brand-ink/80 hover:text-brand-rose transition-colors">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
         </a>
-        <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estilo%20Fitness%20VR%20e%20gostaria%20de%20ver%20os%20modelos%20dispon%C3%ADveis." target="_blank" rel="noopener" class="rose-gradient text-white text-xs sm:text-sm font-semibold px-4 py-2.5 rounded-full shadow-sm hover:opacity-95 transition-opacity">
-          WhatsApp
+        <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estilo%20Fitness%20VR%20e%20gostaria%20de%20ver%20as%20pe%C3%A7as%20dispon%C3%ADveis." target="_blank" rel="noopener" class="bg-brand-ink text-white text-[11px] font-semibold uppercase tracking-[0.14em] px-4 py-2.5 hover:bg-brand-rose transition-colors">
+          Comprar
         </a>
       </div>
+    </div>
+
+    <!-- Menu Mobile Dropdown -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-neutral-200 px-6 py-5 space-y-4">
+      <a href="#catalogo" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Ver Coleção Completa (27)</a>
+      <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-rose">Catálogo Oficial WhatsApp</a>
+      <a href="javascript:void(0)" onclick="filtrarCategoria('ofertas')" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Oferta Especial</a>
+      <a href="#sobre" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Sobre a Estilo Fitness</a>
+      <a href="#faq" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Perguntas Frequentes</a>
+      <a href="#localizacao" class="block text-xs font-semibold uppercase tracking-[0.16em] text-brand-ink">Entregas & Contato: (24) 99828-6508</a>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="inicio" class="relative overflow-hidden bg-gradient-to-b from-brand-blush/80 via-brand-blushLight to-brand-bg py-14 sm:py-20 border-b border-brand-blushDark/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 items-center">
-      <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-blushDark text-brand-rose text-xs font-semibold tracking-wide uppercase shadow-sm">
-          <span class="w-2 h-2 rounded-full bg-brand-rose animate-pulse"></span>
-          Provador Real • @estilofitnessvr
-        </div>
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-brand-ink leading-[1.12]">
-          Seu treino. Seu look. <span class="text-brand-rose italic">Sua identidade.</span>
+  <!-- Hero Banner Editorial Full-Width -->
+  <section id="inicio" class="relative bg-brand-surface border-b border-neutral-200/70">
+    <div class="max-w-7xl mx-auto grid lg:grid-cols-12 min-h-[540px] lg:min-h-[620px]">
+      
+      <!-- Coluna Editorial Esquerda -->
+      <div class="lg:col-span-6 flex flex-col justify-center px-6 sm:px-12 lg:px-16 py-14 lg:py-20 order-2 lg:order-1">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.26em] text-brand-rose mb-4 block">
+          Coleção Provador Real • @estilofitnessvr
+        </span>
+        <h1 class="font-serif text-4xl sm:text-5xl lg:text-[62px] font-semibold text-brand-ink leading-[1.06] tracking-tight mb-6">
+          Seu treino. Seu look. <span class="italic font-normal text-brand-rose">Sua identidade.</span>
         </h1>
-        <p class="text-brand-muted text-base sm:text-lg max-w-xl mx-auto lg:mx-0 leading-relaxed">
-          Peças reais testadas no corpo com modelagem que valoriza a silhueta, zero transparência e alta sustentação para você treinar linda, estilosa e endorfinada.
+        <p class="text-brand-muted text-sm sm:text-base max-w-md leading-relaxed mb-8 font-normal">
+          Conjuntos de alta compressão, zero transparência e shorts sem costura frontal. Peças reais vestidas no corpo para você se sentir linda, estilosa e endorfinada.
         </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
-          <a href="#catalogo" class="w-full sm:w-auto rose-gradient text-white font-semibold px-8 py-4 rounded-full shadow-md hover:opacity-95 transition-all text-center">
-            Ver Catálogo Completo
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#catalogo" class="bg-brand-ink text-white text-xs font-semibold uppercase tracking-[0.18em] px-8 py-4 hover:bg-brand-rose transition-colors">
+            Explorar Coleção (27)
           </a>
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20tamanhos%20e%20cores%20dispon%C3%ADveis." target="_blank" rel="noopener" class="w-full sm:w-auto bg-white text-brand-rose border border-brand-rose/30 font-semibold px-8 py-4 rounded-full hover:bg-brand-blush/50 transition-all text-center">
-            Pedir pelo WhatsApp
+          <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="border border-brand-ink/30 text-brand-ink text-xs font-semibold uppercase tracking-[0.18em] px-8 py-4 hover:border-brand-ink transition-colors">
+            Catálogo WhatsApp
           </a>
-        </div>
-        <div class="pt-3 flex flex-wrap items-center justify-center lg:justify-start gap-5 text-xs sm:text-sm text-brand-muted font-medium">
-          <span class="flex items-center gap-1.5">✓ Entrega grátis VR, BM e Resende</span>
-          <span class="flex items-center gap-1.5">✓ Fotos reais no corpo</span>
-          <span class="flex items-center gap-1.5">✓ PIX, dinheiro ou cartão</span>
         </div>
       </div>
 
-      <!-- Card de Identidade e Logo em Destaque no Hero -->
-      <div class="lg:col-span-5">
-        <div class="bg-[#F7DFDC] p-8 sm:p-10 rounded-3xl border border-brand-rose/25 card-shadow text-center space-y-5 relative overflow-hidden">
-          <div class="w-44 h-44 mx-auto">
-            <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-sm" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <linearGradient id="heroRoseGold" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" stop-color="#683330"/>
-                  <stop offset="45%" stop-color="#B87772"/>
-                  <stop offset="100%" stop-color="#683330"/>
-                </linearGradient>
-                <path id="heroTopArc" d="M 38,100 A 62,62 0 1,1 162,100" />
-                <path id="heroBottomArc" d="M 36,105 A 64,64 0 0,0 164,105" />
-              </defs>
-              <circle cx="100" cy="100" r="76" fill="none" stroke="url(#heroRoseGold)" stroke-width="2" stroke-dasharray="395 35 50 20"/>
-              <text fill="#683330" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" letter-spacing="4.8">
-                <textPath href="#heroTopArc" startOffset="50%" text-anchor="middle">ESTILO</textPath>
-              </text>
-              <text fill="#683330" font-family="'Plus Jakarta Sans', sans-serif" font-size="12.5" font-weight="600" letter-spacing="4.2">
-                <textPath href="#heroBottomArc" startOffset="50%" text-anchor="middle">FITNESS</textPath>
-              </text>
-              <text x="54" y="132" fill="url(#heroRoseGold)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">E</text>
-              <text x="96" y="132" fill="url(#heroRoseGold)" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="600">F</text>
-              <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="url(#heroRoseGold)" stroke-width="2.5" stroke-linecap="round"/>
-              <g transform="translate(162, 34) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
-                <path d="M 8,45 Q 12,22 22,8"/>
-                <path d="M 12,32 Q 24,26 30,18"/>
-                <ellipse cx="23" cy="6" rx="6" ry="9" transform="rotate(25 23 6)" fill="#E6A9A4" fill-opacity="0.6"/>
-                <ellipse cx="32" cy="17" rx="5" ry="7" transform="rotate(45 32 17)" fill="#E6A9A4" fill-opacity="0.6"/>
-              </g>
-              <g transform="translate(12, 122) scale(0.75)" stroke="#854642" fill="none" stroke-width="1.8">
-                <path d="M 28,42 Q 18,22 8,10"/>
-                <path d="M 22,30 Q 10,28 4,22"/>
-                <ellipse cx="7" cy="8" rx="6" ry="9" transform="rotate(-30 7 8)" fill="#E6A9A4" fill-opacity="0.6"/>
-                <ellipse cx="3" cy="21" rx="4.5" ry="6.5" transform="rotate(-50 3 21)" fill="#E6A9A4" fill-opacity="0.6"/>
-              </g>
-              <g transform="translate(142, 134) rotate(-35)" stroke="#683330" fill="#F7DFDC" stroke-width="1.8">
-                <rect x="-14" y="-2" width="28" height="4" rx="1"/>
-                <rect x="-18" y="-9" width="4" height="18" rx="1.5"/>
-                <rect x="-22" y="-7" width="3.5" height="14" rx="1"/>
-                <rect x="14" y="-9" width="4" height="18" rx="1.5"/>
-                <rect x="18.5" y="-7" width="3.5" height="14" rx="1"/>
-              </g>
-            </svg>
+      <!-- Coluna Visual Direita -->
+      <div class="lg:col-span-6 grid grid-cols-2 gap-1 bg-brand-blush/30 order-1 lg:order-2 min-h-[380px] sm:min-h-[480px]">
+        <div class="relative overflow-hidden bg-[#1D2842]">
+          <img
+            data-base="conjunto-legging-azul-marinho,2b506391-bcc7-48a4-80ac-892f41eb2c9a"
+            src="conjunto-legging-azul-marinho.jpg"
+            alt="Conjunto Legging Nadador - Azul Marinho"
+            class="catalog-img w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-2">
+            <p class="text-[10px] uppercase tracking-[0.16em] text-brand-muted">Novidade</p>
+            <p class="text-xs font-semibold text-brand-ink">Legging Azul Marinho</p>
+          </div>
+        </div>
+        <div class="relative overflow-hidden bg-[#18181B]">
+          <img
+            data-base="conjunto-short-bicolor-preto-caramelo,0ea56a9c-7bb1-4782-a4ce-140191a074d0"
+            src="conjunto-short-bicolor-preto-caramelo.jpg"
+            alt="Conjunto Short Bicolor - Preto e Caramelo"
+            class="catalog-img w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+          />
+          <div class="absolute bottom-4 left-4 bg-white/95 backdrop-blur-sm px-3.5 py-2">
+            <p class="text-[10px] uppercase tracking-[0.16em] text-brand-muted">Destaque</p>
+            <p class="text-xs font-semibold text-brand-ink">Bicolor Preto & Caramelo</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Faixa de Benefícios Minimalista -->
+  <section class="border-b border-neutral-200/80 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 py-7 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center sm:text-left">
+      <div class="flex flex-col sm:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-brand-blushLight text-brand-rose flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 01-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 01-3 0m3 0a1.5 1.5 0 00-3 0m3 0h1.125c.621 0 1.129-.504 1.09-1.124a17.902 17.902 0 00-3.213-9.193 2.056 2.056 0 00-1.58-.86H14.25M16.5 18.75h-2.25m0-11.177v-.958c0-.568-.422-1.048-.987-1.106a48.554 48.554 0 00-10.026 0 1.106 1.106 0 00-.987 1.106v7.635m12-6.677v6.677m0 4.5v-4.5m0 0h-12"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Entrega Grátis</h3>
+          <p class="text-xs text-brand-muted mt-0.5">Volta Redonda, BM e Resende</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-brand-blushLight text-brand-rose flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Zero Transparência</h3>
+          <p class="text-xs text-brand-muted mt-0.5">Tecidos de alta compressão</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-brand-blushLight text-brand-rose flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Provador Real</h3>
+          <p class="text-xs text-brand-muted mt-0.5">Caimento verdadeiro no corpo</p>
+        </div>
+      </div>
+
+      <div class="flex flex-col sm:flex-row items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-brand-blushLight text-brand-rose flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.6" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z"/></svg>
+        </div>
+        <div>
+          <h3 class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Atendimento Direto</h3>
+          <p class="text-xs text-brand-muted mt-0.5">WhatsApp (24) 99828-6508</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Navegação Visual por Categorias -->
+  <section id="novidades" class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="flex items-center justify-between mb-8">
+      <h2 class="font-serif text-2xl sm:text-3xl font-semibold text-brand-ink">Navegue por Categoria</h2>
+      <a href="#catalogo" class="text-xs font-semibold uppercase tracking-[0.16em] text-brand-rose hover:underline">Ver Todas (27) →</a>
+    </div>
+
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5 sm:gap-8">
+      <button onclick="filtrarCategoria('todos')" class="group text-center space-y-3 focus:outline-none">
+        <div class="aspect-square max-w-[170px] mx-auto rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-rose transition-all p-1">
+          <img data-base="conjunto-short-bicolor-preto-caramelo,0ea56a9c-7bb1-4782-a4ce-140191a074d0" src="conjunto-short-bicolor-preto-caramelo.jpg" alt="Coleção Completa" class="catalog-img w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <span class="block text-xs font-bold uppercase tracking-[0.16em] text-brand-ink group-hover:text-brand-rose">Coleção Completa (27)</span>
+      </button>
+
+      <button onclick="filtrarCategoria('shorts')" class="group text-center space-y-3 focus:outline-none">
+        <div class="aspect-square max-w-[170px] mx-auto rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-rose transition-all p-1">
+          <img data-base="conjunto-short-azul-serenity,19e1900f-50a4-454a-8a1a-e63480cd4d35" src="conjunto-short-azul-serenity.jpg" alt="Conjuntos com Short" class="catalog-img w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <span class="block text-xs font-bold uppercase tracking-[0.16em] text-brand-ink group-hover:text-brand-rose">Conjuntos Short (17)</span>
+      </button>
+
+      <button onclick="filtrarCategoria('leggings')" class="group text-center space-y-3 focus:outline-none">
+        <div class="aspect-square max-w-[170px] mx-auto rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-rose transition-all p-1">
+          <img data-base="conjunto-legging-gota-offwhite-preto,2f8d3ed3-f2ba-4615-bd03-a107fbb719db" src="conjunto-legging-gota-offwhite-preto.jpg" alt="Conjuntos com Legging" class="catalog-img w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <span class="block text-xs font-bold uppercase tracking-[0.16em] text-brand-ink group-hover:text-brand-rose">Conjuntos Legging (10)</span>
+      </button>
+
+      <button onclick="filtrarCategoria('ofertas')" class="group text-center space-y-3 focus:outline-none">
+        <div class="aspect-square max-w-[170px] mx-auto rounded-full overflow-hidden border-2 border-transparent group-hover:border-brand-rose transition-all p-1">
+          <img data-base="conjunto-legging-azul-royal,5ad91ed2-3f21-4601-b27b-ff5a6b96718e" src="conjunto-legging-azul-royal.jpg" alt="Oferta Especial" class="catalog-img w-full h-full object-cover object-top rounded-full group-hover:scale-105 transition-transform duration-500"/>
+        </div>
+        <span class="block text-xs font-bold uppercase tracking-[0.16em] text-brand-rose">Oferta Especial</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Catálogo Editorial Completo (Todas as 27 Opções) -->
+  <section id="catalogo" class="py-12 sm:py-20 max-w-7xl mx-auto px-4 sm:px-8 border-t border-neutral-200/80">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+      <div>
+        <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-rose block mb-2">Shop The Look • Provador Real</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-brand-ink">Catálogo Completo de Modelos</h2>
+        <p class="text-xs text-brand-muted mt-2">
+          Consulte tamanhos e valores atualizados no <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="text-brand-rose font-semibold underline hover:opacity-80">Catálogo Oficial do WhatsApp</a> ou peça pelo <strong>(24) 99828-6508</strong>.
+        </p>
+      </div>
+
+      <!-- Barra de Filtros Minimalista -->
+      <div class="flex flex-wrap gap-2" id="filter-buttons">
+        <button data-filter="todos" class="filter-btn active px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all bg-brand-ink text-white">
+          Todos (27)
+        </button>
+        <button data-filter="shorts" class="filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all bg-brand-surface text-brand-ink/70 hover:text-brand-ink border border-neutral-200">
+          Conjuntos Short (17)
+        </button>
+        <button data-filter="leggings" class="filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all bg-brand-surface text-brand-ink/70 hover:text-brand-ink border border-neutral-200">
+          Conjuntos Legging (10)
+        </button>
+        <button data-filter="ofertas" class="filter-btn px-5 py-2 text-xs font-semibold uppercase tracking-[0.14em] transition-all bg-brand-surface text-brand-ink/70 hover:text-brand-ink border border-neutral-200">
+          Oferta Especial
+        </button>
+      </div>
+    </div>
+
+    <!-- Grade de Produtos (27 Opções) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-7 gap-y-12" id="products-grid">
+
+      <!-- 1. Conjunto Legging Nadador - Azul Royal (Oferta especial) -->
+      <article id="ofertas" class="product-card group flex flex-col justify-between" data-category="leggings ofertas">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-legging-azul-royal,5ad91ed2-3f21-4601-b27b-ff5a6b96718e"
+              src="conjunto-legging-azul-royal.jpg"
+              alt="Conjunto Legging Nadador - Azul Royal"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20oferta%20do%20Conjunto%20Legging%20Nadador%20-%20Azul%20Royal%20(de%20R%24%20169%2C90%20por%20R%24%20119%2C90)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Garantir Oferta Especial
+            </a>
           </div>
 
           <div class="space-y-1.5">
-            <h2 class="font-serif text-2xl font-bold text-brand-ink">Moda Fitness com Caimento Real</h2>
-            <p class="text-xs sm:text-sm text-brand-muted">
-              Confira abaixo todos os conjuntos vestidos no provador da loja com valores atualizados.
-            </p>
-          </div>
-
-          <a href="#catalogo" class="inline-block w-full bg-white text-brand-rose font-semibold py-3.5 rounded-2xl text-sm shadow-sm hover:bg-brand-bg transition-colors">
-            Conferir Modelos e Valores ↓
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Catálogo Completo (Apenas os 5 Modelos Exatos) -->
-  <section id="catalogo" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto space-y-3 mb-10">
-      <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Provador Real Estilo Fitness</span>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink">Catálogo de Modelos</h2>
-      <p class="text-brand-muted text-sm sm:text-base">
-        Todos os looks vestidos para você visualizar o caimento genuíno no corpo. Clique em <strong>Pedir no WhatsApp</strong> para reservar o seu tamanho.
-      </p>
-    </div>
-
-    <!-- Filtros -->
-    <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10" id="filter-buttons">
-      <button data-filter="todos" class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all rose-gradient text-white shadow-sm">
-        Todos os Modelos (6)
-      </button>
-      <button data-filter="shorts" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-brand-muted border border-brand-blushDark hover:border-brand-rose">
-        Conjuntos com Short
-      </button>
-      <button data-filter="leggings" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-brand-muted border border-brand-blushDark hover:border-brand-rose">
-        Conjuntos com Legging
-      </button>
-      <button data-filter="ofertas" class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all bg-white text-brand-muted border border-brand-blushDark hover:border-brand-rose">
-        Ofertas Especiais
-      </button>
-    </div>
-
-    <!-- Grade de 6 Produtos -->
-    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
-
-      <!-- 1. Top Modelo Douglas - Marrom: R$137,00 -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="shorts">
-        <div>
-          <div class="relative aspect-[3/4] bg-[#5C3328] overflow-hidden group">
-            <img
-              data-base="foto-1-douglas-marrom"
-              src="foto-1-douglas-marrom.jpg.jpg"
-              alt="Top Modelo Douglas - Marrom"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-
-          <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Top Modelo Douglas - Marrom</h3>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Top com modelagem inspirada em sutiã que proporciona ótima sustentação, acompanhado de short sem costura frontal que evita marcações.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted block">Valor do conjunto</span>
-                <span class="text-2xl font-bold text-brand-rose">R$ 137,00</span>
-              </div>
-              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
-                Frete Grátis VR/BM/Resende
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Douglas%20-%20Marrom%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Pedir no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <!-- 2. Modelo Azul - R$169,90 por R$119,90 -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings ofertas">
-        <div>
-          <div class="relative aspect-[3/4] bg-[#335C81] overflow-hidden group">
-            <img
-              data-base="foto-2-modelo-azul"
-              src="foto-2-modelo-azul.jpg.jpg"
-              alt="Modelo Azul"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-
-          <div class="p-6 space-y-3">
             <div class="flex items-center justify-between gap-2">
-              <h3 class="font-serif text-2xl font-bold text-brand-ink">Modelo Azul</h3>
-              <span class="bg-amber-100 text-amber-800 border border-amber-300 text-xs font-bold px-3 py-1 rounded-full">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Nadador — Azul Royal
+              </h3>
+              <span class="bg-brand-blush text-brand-rose text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-0.5 shrink-0">
                 Oferta especial
               </span>
             </div>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Conjunto queridinho com calça legging de cós alto anatômico e top nadador confortável. Disponível também em outras cores sob consulta.
+            <div class="flex items-baseline gap-2">
+              <span class="text-xs text-brand-muted line-through">R$ 169,90</span>
+              <span class="font-bold text-base text-brand-rose">R$ 119,90</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Calça legging de cintura alta anatômica com top nadador reforçado. Alta compressão, toque macio e zero transparência no agachamento.
             </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted line-through block">De R$ 169,90</span>
-                <span class="text-2xl font-bold text-brand-rose">Por R$ 119,90</span>
-              </div>
-              <div class="flex items-center gap-1" title="Outras cores disponíveis">
-                <span class="w-4 h-4 rounded-full bg-[#335C81] border border-gray-300"></span>
-                <span class="w-4 h-4 rounded-full bg-[#1F2428] border border-gray-300"></span>
-                <span class="w-4 h-4 rounded-full bg-[#8BB8E8] border border-gray-300"></span>
-                <span class="w-4 h-4 rounded-full bg-[#5B634E] border border-gray-300"></span>
-              </div>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#3675A8] border border-neutral-300" title="Azul Royal"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
             </div>
           </div>
         </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Quero%20aproveitar%20a%20oferta%20do%20Modelo%20Azul%20(de%20R%24%20169%2C90%20por%20R%24%20119%2C90)." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Garantir Oferta no WhatsApp
-          </a>
-        </div>
       </article>
 
-      <!-- 3. Top Modelo Rosa - R$137,00 -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="shorts">
+      <!-- 2. Conjunto Legging Nadador - Azul Marinho -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings ofertas">
         <div>
-          <div class="relative aspect-[3/4] bg-[#8E1549] overflow-hidden group">
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
             <img
-              data-base="foto-3-top-modelo-rosa"
-              src="foto-3-top-modelo-rosa.jpg.jpg"
-              alt="Top Modelo Rosa"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              data-base="conjunto-legging-azul-marinho,2b506391-bcc7-48a4-80ac-892f41eb2c9a"
+              src="conjunto-legging-azul-marinho.jpg"
+              alt="Conjunto Legging Nadador - Azul Marinho"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Legging%20Nadador%20-%20Azul%20Marinho%20(R%24%20119%2C90)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
           </div>
 
-          <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Top Modelo Rosa</h3>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Cor vibrante e feminina com ajuste perfeito. Top estilo sutiã com alças duplas de alta sustentação e short sem costura frontal.
-            </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted block">Valor do conjunto</span>
-                <span class="text-2xl font-bold text-brand-rose">R$ 137,00</span>
-              </div>
-              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full">
-                Frete Grátis VR/BM/Resende
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Nadador — Azul Marinho
+              </h3>
+              <span class="bg-brand-blush text-brand-rose text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-0.5 shrink-0">
+                Oferta especial
               </span>
             </div>
-          </div>
-        </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Rosa%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Pedir no WhatsApp
-          </a>
-        </div>
-      </article>
-
-      <!-- 4. Conjunto Assimétrico Black -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
-        <div>
-          <div class="relative aspect-[3/4] bg-[#1C1C20] overflow-hidden group">
-            <img
-              data-base="foto-4-assimetrico-preto"
-              src="foto-4-assimetrico-preto.jpg.jpg"
-              alt="Conjunto Assimétrico Black"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
-            />
-          </div>
-
-          <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Conjunto Assimétrico Black</h3>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Recorte assimétrico de um ombro só com faixas brancas contrastantes que alongam e valorizam a cintura com elegância.
+            <div class="flex items-baseline gap-2">
+              <span class="text-xs text-brand-muted line-through">R$ 169,90</span>
+              <span class="font-bold text-base text-brand-rose">R$ 119,90</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Elegância clássica do azul marinho profundo. Modelagem que desenha a cintura sem enrolar o cós durante treinos intensos.
             </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted block">Valor e tamanhos</span>
-                <span class="text-base font-bold text-brand-rose">Consultar no WhatsApp</span>
-              </div>
-              <span class="w-5 h-5 rounded-full bg-[#1C1C20] border-2 border-gray-300"></span>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#1D2842] border border-neutral-300" title="Azul Marinho"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
             </div>
           </div>
         </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Black." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Consultar no WhatsApp
-          </a>
-        </div>
       </article>
 
-      <!-- 5. Conjunto Assimétrico Navy -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
+      <!-- 3. Conjunto Legging Nadador - Preto Clássico -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings ofertas">
         <div>
-          <div class="relative aspect-[3/4] bg-[#162347] overflow-hidden group">
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
             <img
-              data-base="foto-5-assimetrico-marinho"
-              src="foto-5-assimetrico-marinho.jpg.jpg"
-              alt="Conjunto Assimétrico Navy"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              data-base="conjunto-legging-preto-classico,c70c7171-53de-4e1e-95cf-7c184417753a"
+              src="conjunto-legging-preto-classico.jpg"
+              alt="Conjunto Legging Nadador - Preto Clássico"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Legging%20Nadador%20-%20Preto%20Cl%C3%A1ssico%20(R%24%20119%2C90)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
           </div>
 
-          <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Conjunto Assimétrico Navy</h3>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Combinação sofisticada de azul marinho profundo com acabamento em verde menta suave, cós alto anatômico e zero transparência.
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Nadador — Preto Clássico
+              </h3>
+              <span class="bg-brand-blush text-brand-rose text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-0.5 shrink-0">
+                Oferta especial
+              </span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-xs text-brand-muted line-through">R$ 169,90</span>
+              <span class="font-bold text-base text-brand-rose">R$ 119,90</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              O pretinho indispensável no guarda-roupa fitness. Tecido encorpado com elasticidade bidirecional que não marca e não fica transparente.
             </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted block">Valor e tamanhos</span>
-                <span class="text-base font-bold text-brand-rose">Consultar no WhatsApp</span>
-              </div>
-              <span class="w-5 h-5 rounded-full bg-[#162347] border-2 border-[#A8D5BA]"></span>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
             </div>
           </div>
         </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20valor%20e%20tamanhos%20do%20Conjunto%20Assim%C3%A9trico%20Navy." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Consultar no WhatsApp
-          </a>
-        </div>
       </article>
 
-      <!-- 6. Look Legging Canelada -->
-      <article class="product-card bg-white rounded-3xl border border-brand-blushDark/70 overflow-hidden card-shadow flex flex-col justify-between transition-transform hover:-translate-y-1" data-category="leggings">
+      <!-- 4. Conjunto Legging Nadador - Verde Oliva -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings ofertas">
         <div>
-          <div class="relative aspect-[3/4] bg-[#4E4842] overflow-hidden group">
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
             <img
-              data-base="foto-6-top-douglas-legging-canelada,foto-6-leg-canelada-top-douglas"
-              src="foto-6-top-douglas-legging-canelada.jpg"
-              alt="Look Legging Canelada"
-              class="catalog-img w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+              data-base="conjunto-legging-verde-oliva,44ee8143-ce18-4d89-a484-7768d91ddd0d"
+              src="conjunto-legging-verde-oliva.jpg"
+              alt="Conjunto Legging Nadador - Verde Oliva"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
             />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Legging%20Nadador%20-%20Verde%20Oliva%20(R%24%20119%2C90)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
           </div>
 
-          <div class="p-6 space-y-3">
-            <h3 class="font-serif text-2xl font-bold text-brand-ink">Look Legging Canelada</h3>
-            <p class="text-sm text-brand-muted leading-relaxed">
-              Legging canelada de alta compressão e zero transparência combinada com o Top Douglas de sustentação. Versatilidade para montar seu estilo.
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Nadador — Verde Oliva
+              </h3>
+              <span class="bg-brand-blush text-brand-rose text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-0.5 shrink-0">
+                Oferta especial
+              </span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-xs text-brand-muted line-through">R$ 169,90</span>
+              <span class="font-bold text-base text-brand-rose">R$ 119,90</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Tom terroso sofisticado com calça legging de cós largo e top nadador de alta sustentação. Ideal para musculação, funcional e corrida.
             </p>
-            <div class="pt-3 flex items-center justify-between border-t border-brand-blush">
-              <div>
-                <span class="text-xs text-brand-muted block">Valor e tamanhos</span>
-                <span class="text-base font-bold text-brand-rose">Consultar no WhatsApp</span>
-              </div>
-              <div class="flex items-center gap-1">
-                <span class="w-4 h-4 rounded-full bg-[#2A3B54] border border-gray-300"></span>
-                <span class="w-4 h-4 rounded-full bg-[#696058] border border-gray-300"></span>
-              </div>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5A6347] border border-neutral-300" title="Verde Oliva"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
             </div>
           </div>
         </div>
-        <div class="px-6 pb-6">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20consultar%20o%20Look%20Legging%20Canelada." target="_blank" rel="noopener" class="w-full rose-gradient text-white font-semibold py-3.5 rounded-xl text-sm flex items-center justify-center gap-2 hover:opacity-95 transition-opacity shadow-sm">
-            Consultar no WhatsApp
-          </a>
+      </article>
+
+      <!-- 5. Conjunto Legging Nadador - Verde Esmeralda -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings ofertas">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-legging-verde-esmeralda,f8bbc552-da2d-4c62-b4aa-cae2ce548826"
+              src="conjunto-legging-verde-esmeralda.jpg"
+              alt="Conjunto Legging Nadador - Verde Esmeralda"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Legging%20Nadador%20-%20Verde%20Esmeralda%20(R%24%20119%2C90)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-center justify-between gap-2">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Nadador — Verde Esmeralda
+              </h3>
+              <span class="bg-brand-blush text-brand-rose text-[10px] font-bold uppercase tracking-[0.12em] px-2.5 py-0.5 shrink-0">
+                Oferta especial
+              </span>
+            </div>
+            <div class="flex items-baseline gap-2">
+              <span class="text-xs text-brand-muted line-through">R$ 169,90</span>
+              <span class="font-bold text-base text-brand-rose">R$ 119,90</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Verde intenso que realça o tom de pele com caimento impecável. Cós alto que modela a silhueta com conforto absoluto.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#43684E] border border-neutral-300" title="Verde Esmeralda"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 6. Top Modelo Douglas + Short - Cinza Chumbo (Frente / Perfil) -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-douglas-cinza"
+              data-base="conjunto-short-douglas-cinza-chumbo,64d502b9-74f0-4cfd-b215-51260b08f7ca"
+              src="conjunto-short-douglas-cinza-chumbo.jpg"
+              alt="Conjunto Top Modelo Douglas - Cinza Chumbo"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-douglas-cinza', 'cinza-btn', 'frente', this)" class="cinza-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-douglas-cinza', 'cinza-btn', 'perfil', this)" class="cinza-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Perfil
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Douglas%20%2B%20Short%20-%20Cinza%20Chumbo%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Top Modelo Douglas + Short — Cinza Chumbo
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top com recorte franzido estilo sutiã e alças duplas de alta sustentação, acompanhado de short cós alto sem costura frontal.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5A6467] border border-neutral-300" title="Cinza Chumbo"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 7. Top Modelo Douglas + Short - Preto -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-douglas-preto,6cc5079d-e0a9-4d57-832c-84ade8a8145f"
+              src="conjunto-short-douglas-preto.jpg"
+              alt="Top Modelo Douglas + Short - Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Douglas%20%2B%20Short%20-%20Preto%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Top Modelo Douglas + Short — Preto
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Modelagem campeã de vendas na cor preta clássica. Top estilo sutiã com franzido central e short sem costura frontal.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 8. Top Modelo Douglas + Short - Marrom (Frente / Perfil) -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-douglas-marrom"
+              data-base="conjunto-short-douglas-marrom,7eb6b118-c562-4c4d-87db-4abf07f0f0d5"
+              src="conjunto-short-douglas-marrom.jpg"
+              alt="Top Modelo Douglas + Short - Marrom"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-douglas-marrom', 'marrom-btn', 'frente', this)" class="marrom-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-douglas-marrom', 'marrom-btn', 'perfil', this)" class="marrom-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Perfil
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Douglas%20%2B%20Short%20-%20Marrom%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Top Modelo Douglas + Short — Marrom
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top com modelagem inspirada em sutiã que proporciona ótima sustentação, acompanhado de short sem costura frontal que evita marcações.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5C3328] border border-neutral-300" title="Marrom"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 9. Top Modelo Douglas + Short - Rosa Berry -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-douglas-rosa-berry,bd824b57-2fcc-47fe-9f9a-0c58fc3e2fa1"
+              src="conjunto-short-douglas-rosa-berry.jpg"
+              alt="Top Modelo Douglas + Short - Rosa Berry"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Top%20Modelo%20Douglas%20%2B%20Short%20-%20Rosa%20Berry%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Top Modelo Douglas + Short — Rosa Berry
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Cor vibrante e feminina com ajuste perfeito. Top estilo sutiã com alças duplas de alta sustentação e short sem costura frontal.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#8E1549] border border-neutral-300" title="Rosa Berry"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 10. Conjunto Short Bicolor Viés - Preto & Caramelo (Frente / Perfil) -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-bicolor-preto"
+              data-base="conjunto-short-bicolor-preto-caramelo,0ea56a9c-7bb1-4782-a4ce-140191a074d0"
+              src="conjunto-short-bicolor-preto-caramelo.jpg"
+              alt="Conjunto Short Bicolor Viés - Preto & Caramelo"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-bicolor-preto', 'bicolor-preto-btn', 'frente', this)" class="bicolor-preto-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-bicolor-preto', 'bicolor-preto-btn', 'perfil', this)" class="bicolor-preto-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Perfil
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Bicolor%20Vi%C3%A9s%20-%20Preto%20%26%20Caramelo." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Bicolor Viés — Preto & Caramelo
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top de decote quadrado com acabamento contrastante em caramelo e short cintura alta com detalhe no cós e bolso lateral.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#D89B74] border border-neutral-300" title="Caramelo"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11. Conjunto Short Bicolor Viés - Azul Marinho & Rosé -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-bicolor-marinho-rose,8b496536-ace2-49a5-8214-f98df688fdcf"
+              src="conjunto-short-bicolor-marinho-rose.jpg"
+              alt="Conjunto Short Bicolor Viés - Azul Marinho & Rosé"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Bicolor%20Vi%C3%A9s%20-%20Azul%20Marinho%20%26%20Ros%C3%A9." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Bicolor Viés — Azul Marinho & Rosé
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Azul marinho elegante com acabamento em rosé suave no decote quadrado, cós e bolso lateral do short. Zero transparência.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#1D2842] border border-neutral-300" title="Azul Marinho"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#E5C6BE] border border-neutral-300" title="Rosé"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 12. Conjunto Short Bicolor Viés - Bordô & Oliva (Frente / Perfil) -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-bicolor-bordo"
+              data-base="conjunto-short-bicolor-bordo-oliva,67578642-74ad-42a6-b5b8-3061a2ac3a10"
+              src="conjunto-short-bicolor-bordo-oliva.jpg"
+              alt="Conjunto Short Bicolor Viés - Bordô & Oliva"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-bicolor-bordo', 'bicolor-bordo-btn', 'frente', this)" class="bicolor-bordo-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-bicolor-bordo', 'bicolor-bordo-btn', 'perfil', this)" class="bicolor-bordo-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Perfil
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Bicolor%20Vi%C3%A9s%20-%20Bord%C3%B4%20%26%20Oliva." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Bicolor Viés — Bordô & Oliva
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Combinação exclusiva em bordô intenso com acabamento em verde oliva no decote quadrado, cós e bolso lateral do short.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#6E2646] border border-neutral-300" title="Bordô"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5A6347] border border-neutral-300" title="Oliva"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 13. Conjunto Legging Gota Vazado - Off-White & Preto (Frente / Perfil) -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-gota-offwhite"
+              data-base="conjunto-legging-gota-offwhite-preto,2f8d3ed3-f2ba-4615-bd03-a107fbb719db"
+              src="conjunto-legging-gota-offwhite-preto.jpg"
+              alt="Conjunto Legging Gota Vazado - Off-White & Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-gota-offwhite', 'gota-off-btn', 'frente', this)" class="gota-off-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-gota-offwhite', 'gota-off-btn', 'perfil', this)" class="gota-off-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Perfil
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Legging%20Gota%20Vazado%20-%20Off-White%20%26%20Preto." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Gota Vazado — Off-White & Preto
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top off-white com recorte frontal em gota e alças cruzadas combinado com calça legging preta de cós alto bicolor.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#F5F2EB] border border-neutral-300" title="Off-White"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 14. Conjunto Legging Gota Vazado - Terracota & Preto (Frente / Perfil / Costas) -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-gota-terracota"
+              data-base="conjunto-legging-gota-terracota-preto,2f40d485-a567-4cbe-b14c-4df3588fa8ff"
+              src="conjunto-legging-gota-terracota-preto.jpg"
+              alt="Conjunto Legging Gota Vazado - Terracota & Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-gota-terracota', 'gota-terra-btn', 'frente', this)" class="gota-terra-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-gota-terracota', 'gota-terra-btn', 'perfil', this)" class="gota-terra-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2 py-1">
+                Perfil
+              </button>
+              <button type="button" onclick="trocarFoto('img-gota-terracota', 'gota-terra-btn', 'costas', this)" class="gota-terra-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2 py-1">
+                Costas
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Legging%20Gota%20Vazado%20-%20Terracota%20%26%20Preto." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Gota Vazado — Terracota & Preto
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top terracota com detalhe vazado no busto, alças cruzadas nas costas e legging preta de alta compressão com recorte no bolso lateral.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#C9885D] border border-neutral-300" title="Terracota"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">3 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 15. Conjunto Legging Cruzado Gota - Lilás & Off-White -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-legging-cruzado-lilas-offwhite,f0d9582e-97c6-4b93-8719-4ff021791a84"
+              src="conjunto-legging-cruzado-lilas-offwhite.jpg"
+              alt="Conjunto Legging Cruzado Gota - Lilás & Off-White"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Legging%20Cruzado%20Gota%20-%20Lil%C3%A1s%20%26%20Off-White." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Cruzado Gota — Lilás & Off-White
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top lilás lavanda com alças cruzadas frontais e recorte vazado, combinado com calça legging off-white encorpada e detalhe lilás no cós.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#B598D6] border border-neutral-300" title="Lilás"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#F5F2EB] border border-neutral-300" title="Off-White"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 16. Conjunto Legging Assimétrico - Preto & Branco -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-legging-assimetrico-preto-branco,29b14ec7-38f3-40aa-9796-4c18685243ce"
+              src="conjunto-legging-assimetrico-preto-branco.jpg"
+              alt="Conjunto Legging Assimétrico - Preto & Branco"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Legging%20Assim%C3%A9trico%20-%20Preto%20%26%20Branco." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Assimétrico — Preto & Branco
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top de um ombro só com faixas brancas contrastantes e calça legging de cós alto anatômico que alonga a silhueta com estilo único.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#FFFFFF] border border-neutral-300" title="Branco"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 17. Conjunto Legging Assimétrico - Marinho & Menta -->
+      <article class="product-card group flex flex-col justify-between" data-category="leggings">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-legging-assimetrico-marinho-menta,b9c4cad0-e4fc-4428-9ff9-ddad196046b1"
+              src="conjunto-legging-assimetrico-marinho-menta.jpg"
+              alt="Conjunto Legging Assimétrico - Marinho & Menta"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Legging%20Assim%C3%A9trico%20-%20Marinho%20%26%20Menta." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Legging Assimétrico — Marinho & Menta
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top assimétrico de um ombro só em azul marinho profundo com viés verde menta suave e calça legging modeladora de cós alto.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#1D2842] border border-neutral-300" title="Azul Marinho"></span>
+              <span class="w-3.5 h-3.5 rounded-full bg-[#A8D5BA] border border-neutral-300" title="Verde Menta"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 18. Conjunto Short Alça Dupla - Preto Essencial -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-preto-essencial,4ca031b2-aac4-48c3-84c6-5c001f7aa69c"
+              src="conjunto-short-preto-essencial.jpg"
+              alt="Conjunto Short Alça Dupla - Preto Essencial"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Short%20Al%C3%A7a%20Dupla%20-%20Preto%20Essencial%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Alça Dupla — Preto Essencial
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top de decote reto com alças duplas reforçadas e short cintura alta sem costura frontal. Versátil e super confortável para dias quentes.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 19. Conjunto Short Alça Dupla - Azul Marinho -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-azul-marinho,c605019a-fed0-4019-9573-823e08917761"
+              src="conjunto-short-azul-marinho.jpg"
+              alt="Conjunto Short Alça Dupla - Azul Marinho"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Short%20Al%C3%A7a%20Dupla%20-%20Azul%20Marinho%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Alça Dupla — Azul Marinho
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Modelagem moderna com short que não sobe na perna e não marca a região frontal. Sustentação firme para corrida, cross e musculação.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#1D2842] border border-neutral-300" title="Azul Marinho"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 20. Conjunto Short Alça Dupla - Azul Serenity -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-azul-serenity,19e1900f-50a4-454a-8a1a-e63480cd4d35"
+              src="conjunto-short-azul-serenity.jpg"
+              alt="Conjunto Short Alça Dupla - Azul Serenity"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20pedir%20o%20Conjunto%20Short%20Al%C3%A7a%20Dupla%20-%20Azul%20Serenity%20(R%24%20137%2C00)." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Alça Dupla — Azul Serenity
+              </h3>
+              <span class="font-semibold text-base text-brand-ink shrink-0">R$ 137,00</span>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Tom azul céu iluminado e delicado com tecido encorpado de zero transparência. Short sem costura frontal com cós alto modelador.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#68A8E8] border border-neutral-300" title="Azul Serenity"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 21. Conjunto Short Nadador Cavado - Preto Total -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-nadador-cavado-preto,9e829ea5-1172-4adb-9f9b-2a03d1c9d301"
+              src="conjunto-short-nadador-cavado-preto.jpg"
+              alt="Conjunto Short Nadador Cavado - Preto Total"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Nadador%20Cavado%20-%20Preto%20Total." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Nadador Cavado — Preto Total
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top gola alta com cava nadador que garante firmeza para treinos de superiores e corrida, combinado com short cintura alta sem transparência.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 22. Conjunto Short Nadador Cavado - Verde Oliva -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-nadador-cavado-oliva,4090962a-213d-4963-905d-a4fae2451ba1"
+              src="conjunto-short-nadador-cavado-oliva.jpg"
+              alt="Conjunto Short Nadador Cavado - Verde Oliva"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Nadador%20Cavado%20-%20Verde%20Oliva." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Nadador Cavado — Verde Oliva
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top gola alta com cava nadador em tom verde oliva atemporal, acompanhado de short cintura alta de alta compressão e zero transparência.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5A6347] border border-neutral-300" title="Verde Oliva"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 23. Conjunto Short Nadador Cavado - Azul Marinho -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-nadador-cavado-marinho,ae9d2061-99ee-4868-aa25-21883ee66b1b"
+              src="conjunto-short-nadador-cavado-marinho.jpg"
+              alt="Conjunto Short Nadador Cavado - Azul Marinho"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Nadador%20Cavado%20-%20Azul%20Marinho." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Nadador Cavado — Azul Marinho
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Modelagem cavada que valoriza os ombros com sustentação firme no busto e short cintura alta que não enrola durante o treino.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#1D2842] border border-neutral-300" title="Azul Marinho"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 24. Conjunto Short Nadador Cavado - Marrom Café -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-short-nadador-cavado-marrom,cffc8a27-2b53-4ccf-a465-040a55b3dd48"
+              src="conjunto-short-nadador-cavado-marrom.jpg"
+              alt="Conjunto Short Nadador Cavado - Marrom Café"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Short%20Nadador%20Cavado%20-%20Marrom%20Caf%C3%A9." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Short Nadador Cavado — Marrom Café
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Top gola alta com cava nadador em tom marrom café sofisticado e short cintura alta sem costura frontal com compressão firme.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#5C3328] border border-neutral-300" title="Marrom Café"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 25. Conjunto Regata Dry + Short - Preto (Frente / Costas) -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              id="img-regata-preto"
+              data-base="conjunto-regata-dry-short-preto,9ce90f4a-a2c4-46f6-ac0e-f6d502f20f0f"
+              src="conjunto-regata-dry-short-preto.jpg"
+              alt="Conjunto Regata Dry + Short - Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <div class="absolute top-3 right-3 flex gap-1.5 bg-white/90 backdrop-blur-sm p-1 shadow-sm">
+              <button type="button" onclick="trocarFoto('img-regata-preto', 'regata-btn', 'frente', this)" class="regata-btn bg-brand-ink text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Frente
+              </button>
+              <button type="button" onclick="trocarFoto('img-regata-preto', 'regata-btn', 'costas', this)" class="regata-btn text-brand-ink/70 hover:text-brand-ink text-[10px] font-bold uppercase tracking-wider px-2.5 py-1">
+                Costas
+              </button>
+            </div>
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20Regata%20Dry%20%2B%20Short%20-%20Preto." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto Regata Dry + Short — Preto
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Regata leve com decote nadador cruzado nas costas combinada com short de alta compressão. Opção ideal para maior cobertura e frescor.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">2 ângulos disponíveis • Frete grátis VR/BM/Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 26. Conjunto T-Shirt Dry Manga Curta + Short - Preto -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-tshirt-dry-short-preto,c7d31391-6ec8-4b65-84a7-b478b49b5681"
+              src="conjunto-tshirt-dry-short-preto.jpg"
+              alt="Conjunto T-Shirt Dry Manga Curta + Short - Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20T-Shirt%20Dry%20Manga%20Curta%20%2B%20Short%20-%20Preto." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto T-Shirt Dry Manga Curta + Short — Preto
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Camiseta fitness de manga curta com decote U e caimento fluido combinada com short cintura alta de alta compressão. Conforto e discrição.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 27. Conjunto T-Shirt Tule + Short - Preto -->
+      <article class="product-card group flex flex-col justify-between" data-category="shorts">
+        <div>
+          <div class="relative aspect-[3/4] bg-brand-surface overflow-hidden mb-4">
+            <img
+              data-base="conjunto-tshirt-tule-short-preto,59adf25a-2924-4f5d-9ce3-3e3ff258f098"
+              src="conjunto-tshirt-tule-short-preto.jpg"
+              alt="Conjunto T-Shirt Tule + Short - Preto"
+              class="catalog-img w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+            />
+            <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20saber%20o%20valor%20e%20disponibilidade%20do%20Conjunto%20T-Shirt%20Tule%20%2B%20Short%20-%20Preto." target="_blank" rel="noopener" class="absolute inset-x-3 bottom-3 bg-white/95 backdrop-blur-sm text-brand-ink hover:bg-brand-ink hover:text-white text-[11px] font-bold uppercase tracking-[0.16em] py-3.5 text-center transition-colors shadow-sm">
+              Comprar pelo WhatsApp
+            </a>
+          </div>
+
+          <div class="space-y-1.5">
+            <div class="flex items-start justify-between gap-3">
+              <h3 class="font-medium text-base text-brand-ink group-hover:text-brand-rose transition-colors">
+                Conjunto T-Shirt Tule + Short — Preto
+              </h3>
+              <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="font-semibold text-xs text-brand-rose underline shrink-0">Ver no Catálogo</a>
+            </div>
+            <p class="text-xs text-brand-muted leading-relaxed">
+              Blusa alongada com recortes estratégicos em tule respirável sobre top e short cintura alta. Estilo moderno para treinar com conforto e discrição.
+            </p>
+            <div class="pt-1 flex items-center gap-2">
+              <span class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-neutral-300" title="Preto"></span>
+              <span class="text-[11px] text-brand-muted">Frete grátis VR, BM e Resende</span>
+            </div>
+          </div>
         </div>
       </article>
 
     </div>
   </section>
 
-  <!-- Sobre a Marca -->
-  <section id="sobre" class="py-16 sm:py-24 bg-white border-y border-brand-blushDark/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 grid md:grid-cols-2 gap-12 items-center">
-      <div class="bg-[#F7DFDC] rounded-3xl p-8 sm:p-12 border border-brand-rose/20 relative text-center">
-        <div class="w-36 h-36 mx-auto mb-6">
+  <!-- Banner Editorial Institucional -->
+  <section id="sobre" class="bg-brand-surface border-y border-neutral-200/80 py-16 sm:py-24">
+    <div class="max-w-7xl mx-auto px-4 sm:px-8 grid lg:grid-cols-12 gap-12 items-center">
+      
+      <!-- Card da Marca com Logo Oficial -->
+      <div class="lg:col-span-5 bg-[#F7DFDC] p-10 sm:p-14 text-center border border-brand-rose/20">
+        <div class="w-40 h-40 mx-auto mb-6">
           <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient id="sobreRoseGold" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -517,276 +1337,255 @@
             </g>
           </svg>
         </div>
-        <blockquote class="font-serif italic text-2xl text-brand-ink leading-snug">
+        <p class="font-serif italic text-2xl text-brand-ink leading-snug">
           “Porque se movimentar também é uma oportunidade de se sentir maravilhosa!”
-        </blockquote>
-        <p class="text-xs uppercase tracking-widest text-brand-rose font-semibold mt-4">
-          — Estilo Fitness VR
         </p>
+        <span class="block text-[10px] uppercase tracking-[0.25em] text-brand-rose font-bold mt-4">
+          @estilofitnessvr
+        </span>
       </div>
 
-      <div class="space-y-5">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Sobre Nós</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink leading-tight">
-          Autoestima, conforto e personalidade em cada treino.
+      <!-- Texto Manifesto -->
+      <div class="lg:col-span-7 space-y-6">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-rose block">Sobre a Estilo Fitness VR</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-semibold text-brand-ink leading-[1.12]">
+          Moda fitness pensada para valorizar cada movimento.
         </h2>
-        <p class="text-brand-muted leading-relaxed">
-          A <strong>Estilo Fitness VR</strong> nasceu em Volta Redonda com o propósito de oferecer moda fitness feminina que une beleza, praticidade e funcionalidade. Todas as peças são apresentadas no corpo real para que você tenha total segurança ao escolher seu look.
+        <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
+          Com base em <strong>Volta Redonda – RJ</strong>, a <strong>Estilo Fitness VR</strong> seleciona peças que unem design contemporâneo, sustentação real e tecidos tecnológicos de alta durabilidade. Todas as fotos do nosso catálogo são feitas no provador real para que você visualize o caimento autêntico no corpo.
         </p>
-        <p class="text-brand-muted leading-relaxed">
-          Valorizamos modelagens inteligentes — como o <strong>Top Modelo Douglas</strong> com sustentação de sutiã e os <strong>shorts sem costura frontal</strong> — garantindo liberdade nos movimentos e zero transparência.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Diferenciais -->
-  <section id="diferenciais" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
-      <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Por que escolher a EF</span>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink">Nossos Diferenciais</h2>
-    </div>
-
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 card-shadow space-y-3">
-        <div class="w-11 h-11 rounded-xl bg-brand-blush text-brand-rose flex items-center justify-center font-bold text-lg">01</div>
-        <h3 class="font-serif text-xl font-bold text-brand-ink">Sem Costura Frontal</h3>
-        <p class="text-sm text-brand-muted leading-relaxed">Shorts e leggings com acabamento frontal liso que evita marcações indesejadas durante o treino.</p>
+        <div class="grid sm:grid-cols-2 gap-6 pt-2">
+          <div class="border-l-2 border-brand-rose pl-4">
+            <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-brand-ink">Modelagem Inteligente</h4>
+            <p class="text-xs text-brand-muted mt-1 leading-relaxed">Shorts sem costura frontal e tops com estrutura estilo sutiã que garantem segurança total.</p>
+          </div>
+          <div class="border-l-2 border-brand-rose pl-4">
+            <h4 class="text-xs font-bold uppercase tracking-[0.14em] text-brand-ink">Atendimento Personalizado</h4>
+            <p class="text-xs text-brand-muted mt-1 leading-relaxed">Consultoria direta pelo WhatsApp <strong>(24) 99828-6508</strong> com entrega gratuita em Volta Redonda, Barra Mansa e Resende.</p>
+          </div>
+        </div>
       </div>
 
-      <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 card-shadow space-y-3">
-        <div class="w-11 h-11 rounded-xl bg-brand-blush text-brand-rose flex items-center justify-center font-bold text-lg">02</div>
-        <h3 class="font-serif text-xl font-bold text-brand-ink">Frete Grátis Regional</h3>
-        <p class="text-sm text-brand-muted leading-relaxed">Entrega gratuita e rápida em Volta Redonda, Barra Mansa e Resende.</p>
-      </div>
-
-      <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 card-shadow space-y-3">
-        <div class="w-11 h-11 rounded-xl bg-brand-blush text-brand-rose flex items-center justify-center font-bold text-lg">03</div>
-        <h3 class="font-serif text-xl font-bold text-brand-ink">Provador Genuíno</h3>
-        <p class="text-sm text-brand-muted leading-relaxed">Fotos reais vestidas no corpo mostrando elasticidade, sustentação e caimento verdadeiro.</p>
-      </div>
-
-      <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 card-shadow space-y-3">
-        <div class="w-11 h-11 rounded-xl bg-brand-blush text-brand-rose flex items-center justify-center font-bold text-lg">04</div>
-        <h3 class="font-serif text-xl font-bold text-brand-ink">Atendimento Direto</h3>
-        <p class="text-sm text-brand-muted leading-relaxed">Suporte humanizado pelo WhatsApp para ajudar na escolha ideal de numeração e modelo.</p>
-      </div>
     </div>
   </section>
 
   <!-- Depoimentos -->
-  <section id="depoimentos" class="py-16 sm:py-24 bg-brand-blush/45 border-y border-brand-blushDark/50">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Quem usa, aprova</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink">O que nossas clientes dizem</h2>
-      </div>
-
-      <div class="grid md:grid-cols-3 gap-6">
-        <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 shadow-sm space-y-4">
-          <div class="text-brand-rose text-sm tracking-widest">★★★★★</div>
-          <p class="text-sm text-brand-ink/85 italic leading-relaxed">
-            “Lindo esse conjunto! Veste super bem no corpo, não fica transparente no agachamento e o tecido é muito confortável.”
-          </p>
-          <div class="pt-2 border-t border-brand-blush">
-            <p class="font-semibold text-sm text-brand-ink">Mayara M.</p>
-            <p class="text-xs text-brand-muted">Cliente • Volta Redonda</p>
-          </div>
-        </div>
-
-        <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 shadow-sm space-y-4">
-          <div class="text-brand-rose text-sm tracking-widest">★★★★★</div>
-          <p class="text-sm text-brand-ink/85 italic leading-relaxed">
-            “Amei o short sem costura frontal! Faz toda a diferença na academia. Atendimento impecável e entrega grátis aqui em Barra Mansa.”
-          </p>
-          <div class="pt-2 border-t border-brand-blush">
-            <p class="font-semibold text-sm text-brand-ink">Camila S.</p>
-            <p class="text-xs text-brand-muted">Cliente • Barra Mansa</p>
-          </div>
-        </div>
-
-        <div class="bg-white p-7 rounded-2xl border border-brand-blushDark/60 shadow-sm space-y-4">
-          <div class="text-brand-rose text-sm tracking-widest">★★★★★</div>
-          <p class="text-sm text-brand-ink/85 italic leading-relaxed">
-            “O Top Modelo Douglas tem uma sustentação maravilhosa. Comprei o marrom e já garanti o rosa também!”
-          </p>
-          <div class="pt-2 border-t border-brand-blush">
-            <p class="font-semibold text-sm text-brand-ink">Fernanda R.</p>
-            <p class="text-xs text-brand-muted">Cliente • Resende</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Perguntas Frequentes (FAQ) -->
-  <section id="faq" class="py-16 sm:py-24 max-w-4xl mx-auto px-4 sm:px-6">
-    <div class="text-center max-w-2xl mx-auto space-y-3 mb-12">
-      <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Tire suas dúvidas</span>
-      <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink">Perguntas Frequentes</h2>
-      <p class="text-brand-muted text-sm sm:text-base">
-        Tudo o que você precisa saber sobre entregas, formas de pagamento, tecidos e trocas.
-      </p>
+  <section id="depoimentos" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-8">
+    <div class="text-center max-w-xl mx-auto mb-14">
+      <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-rose block mb-2">Avaliações Reais</span>
+      <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-brand-ink">Quem veste Estilo Fitness</h2>
     </div>
 
-    <div class="space-y-4">
-      <details class="group bg-white rounded-2xl border border-brand-blushDark/70 card-shadow overflow-hidden" open>
-        <summary class="flex items-center justify-between p-6 cursor-pointer font-serif text-xl font-bold text-brand-ink hover:text-brand-rose transition-colors">
-          <span>Quais cidades contam com entrega grátis?</span>
-          <span class="w-8 h-8 rounded-full bg-brand-blush text-brand-rose flex items-center justify-center text-lg font-sans transition-transform group-open:rotate-45">+</span>
-        </summary>
-        <div class="px-6 pb-6 text-sm text-brand-muted leading-relaxed border-t border-brand-blush/60 pt-4">
-          Oferecemos <strong>entrega totalmente gratuita</strong> para <strong>Volta Redonda, Barra Mansa e Resende</strong>. Para outras cidades ou estados, realizamos envios via Correios ou transportadora — basta nos chamar no WhatsApp com seu CEP para calcularmos o prazo.
-        </div>
-      </details>
-
-      <details class="group bg-white rounded-2xl border border-brand-blushDark/70 card-shadow overflow-hidden">
-        <summary class="flex items-center justify-between p-6 cursor-pointer font-serif text-xl font-bold text-brand-ink hover:text-brand-rose transition-colors">
-          <span>As peças ficam transparentes no agachamento?</span>
-          <span class="w-8 h-8 rounded-full bg-brand-blush text-brand-rose flex items-center justify-center text-lg font-sans transition-transform group-open:rotate-45">+</span>
-        </summary>
-        <div class="px-6 pb-6 text-sm text-brand-muted leading-relaxed border-t border-brand-blush/60 pt-4">
-          Não! Selecionamos tecidos de alta gramatura e elasticidade controlada para garantir <strong>zero transparência</strong> durante treinos de musculação, agachamentos e exercícios de alto impacto, desde que escolhido o tamanho adequado ao seu biotipo.
-        </div>
-      </details>
-
-      <details class="group bg-white rounded-2xl border border-brand-blushDark/70 card-shadow overflow-hidden">
-        <summary class="flex items-center justify-between p-6 cursor-pointer font-serif text-xl font-bold text-brand-ink hover:text-brand-rose transition-colors">
-          <span>Quais são as formas de pagamento aceitas?</span>
-          <span class="w-8 h-8 rounded-full bg-brand-blush text-brand-rose flex items-center justify-center text-lg font-sans transition-transform group-open:rotate-45">+</span>
-        </summary>
-        <div class="px-6 pb-6 text-sm text-brand-muted leading-relaxed border-t border-brand-blush/60 pt-4">
-          Aceitamos <strong>PIX, dinheiro e cartão de crédito/débito</strong>. Em campanhas promocionais relâmpago (como o Esquenta Black Friday), os valores especiais são exclusivos para pagamentos via PIX ou dinheiro.
-        </div>
-      </details>
-
-      <details class="group bg-white rounded-2xl border border-brand-blushDark/70 card-shadow overflow-hidden">
-        <summary class="flex items-center justify-between p-6 cursor-pointer font-serif text-xl font-bold text-brand-ink hover:text-brand-rose transition-colors">
-          <span>Como escolho o tamanho ideal para o meu corpo?</span>
-          <span class="w-8 h-8 rounded-full bg-brand-blush text-brand-rose flex items-center justify-center text-lg font-sans transition-transform group-open:rotate-45">+</span>
-        </summary>
-        <div class="px-6 pb-6 text-sm text-brand-muted leading-relaxed border-t border-brand-blush/60 pt-4">
-          Nossas peças possuem excelente elasticidade e modelagem anatômica (geralmente vestindo do 36 ao 42/44 conforme o modelo). Antes de fechar seu pedido pelo WhatsApp, nossa equipe ajuda você a conferir as medidas e indica o tamanho mais confortável para você.
-        </div>
-      </details>
-
-      <details class="group bg-white rounded-2xl border border-brand-blushDark/70 card-shadow overflow-hidden">
-        <summary class="flex items-center justify-between p-6 cursor-pointer font-serif text-xl font-bold text-brand-ink hover:text-brand-rose transition-colors">
-          <span>Posso trocar caso o tamanho não sirva?</span>
-          <span class="w-8 h-8 rounded-full bg-brand-blush text-brand-rose flex items-center justify-center text-lg font-sans transition-transform group-open:rotate-45">+</span>
-        </summary>
-        <div class="px-6 pb-6 text-sm text-brand-muted leading-relaxed border-t border-brand-blush/60 pt-4">
-          Sim! Caso precise trocar por outro tamanho ou modelo disponível em estoque, basta entrar em contato pelo nosso WhatsApp em até 7 dias corridos após o recebimento, mantendo a peça sem sinais de uso e com a etiqueta original fixada.
-        </div>
-      </details>
-    </div>
-  </section>
-
-  <!-- Localização e Área de Entrega -->
-  <section id="localizacao" class="py-16 sm:py-24 max-w-6xl mx-auto px-4 sm:px-6">
-    <div class="bg-white rounded-3xl border border-brand-blushDark/70 card-shadow overflow-hidden grid lg:grid-cols-12">
-      <div class="lg:col-span-6 p-8 sm:p-12 space-y-6 flex flex-col justify-center">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-rose">Atendimento & Entregas</span>
-        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-ink">Região Sul Fluminense</h2>
-        <p class="text-brand-muted text-sm sm:text-base leading-relaxed">
-          Com base em <strong>Volta Redonda – RJ</strong>, levamos os melhores looks fitness diretamente até você com agilidade e atendimento personalizado.
+    <div class="grid md:grid-cols-3 gap-8">
+      <div class="bg-brand-surface p-8 border border-neutral-200/70 space-y-4">
+        <div class="text-brand-rose text-xs tracking-[0.2em]">★★★★★</div>
+        <p class="text-sm text-brand-ink/85 leading-relaxed">
+          “Lindo esse conjunto! Veste super bem no corpo, não fica transparente no agachamento e o tecido é muito confortável.”
         </p>
-
-        <div class="space-y-3 text-sm">
-          <div class="flex items-start gap-3">
-            <span class="text-brand-rose font-bold">📍</span>
-            <div>
-              <strong class="text-brand-ink block">Cidade Sede:</strong>
-              <span class="text-brand-muted">Volta Redonda – Rio de Janeiro</span>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-brand-rose font-bold">🚚</span>
-            <div>
-              <strong class="text-brand-ink block">Entrega Grátis:</strong>
-              <span class="text-brand-muted">Volta Redonda, Barra Mansa e Resende.</span>
-            </div>
-          </div>
-          <div class="flex items-start gap-3">
-            <span class="text-brand-rose font-bold">🕒</span>
-            <div>
-              <strong class="text-brand-ink block">Atendimento Online:</strong>
-              <span class="text-brand-muted">Segunda a Sábado, via WhatsApp e Instagram (@estilofitnessvr).</span>
-            </div>
-          </div>
+        <div class="pt-3 border-t border-neutral-200/80 flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Mayara M.</span>
+          <span class="text-[11px] text-brand-muted">Volta Redonda</span>
         </div>
+      </div>
 
-        <div class="pt-2">
-          <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Gostaria%20de%20combinar%20uma%20entrega%20da%20Estilo%20Fitness%20VR." target="_blank" rel="noopener" class="inline-flex items-center gap-2 rose-gradient text-white font-semibold px-7 py-3.5 rounded-full text-sm shadow-sm hover:opacity-95 transition-opacity">
-            Agendar Entrega pelo WhatsApp
+      <div class="bg-brand-surface p-8 border border-neutral-200/70 space-y-4">
+        <div class="text-brand-rose text-xs tracking-[0.2em]">★★★★★</div>
+        <p class="text-sm text-brand-ink/85 leading-relaxed">
+          “Amei o short sem costura frontal! Faz toda a diferença na academia. Atendimento impecável e entrega grátis aqui em Barra Mansa.”
+        </p>
+        <div class="pt-3 border-t border-neutral-200/80 flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Camila S.</span>
+          <span class="text-[11px] text-brand-muted">Barra Mansa</span>
+        </div>
+      </div>
+
+      <div class="bg-brand-surface p-8 border border-neutral-200/70 space-y-4">
+        <div class="text-brand-rose text-xs tracking-[0.2em]">★★★★★</div>
+        <p class="text-sm text-brand-ink/85 leading-relaxed">
+          “O Top Modelo Douglas tem uma sustentação maravilhosa. Comprei o marrom e já garanti o rosa também!”
+        </p>
+        <div class="pt-3 border-t border-neutral-200/80 flex items-center justify-between">
+          <span class="text-xs font-bold uppercase tracking-[0.12em] text-brand-ink">Fernanda R.</span>
+          <span class="text-[11px] text-brand-muted">Resende</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Perguntas Frequentes -->
+  <section id="faq" class="py-16 sm:py-20 bg-brand-surface border-t border-neutral-200/80">
+    <div class="max-w-3xl mx-auto px-4 sm:px-8">
+      <div class="text-center mb-12">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-rose block mb-2">Atendimento</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-brand-ink">Perguntas Frequentes</h2>
+      </div>
+
+      <div class="divide-y divide-neutral-200 border-y border-neutral-200">
+        <details class="group py-5" open>
+          <summary class="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold text-brand-ink hover:text-brand-rose transition-colors">
+            <span>Quais cidades contam com entrega grátis?</span>
+            <span class="text-xl font-light text-brand-rose transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
+            Oferecemos entrega totalmente gratuita para <strong>Volta Redonda, Barra Mansa e Resende</strong>. Para outras localidades, realizamos envios via Correios ou transportadora sob consulta no WhatsApp <strong>(24) 99828-6508</strong>.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold text-brand-ink hover:text-brand-rose transition-colors">
+            <span>As peças ficam transparentes no agachamento?</span>
+            <span class="text-xl font-light text-brand-rose transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
+            Não. Trabalhamos com tecidos de alta gramatura e compressão equilibrada que garantem zero transparência durante treinos de musculação e exercícios de alto impacto.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold text-brand-ink hover:text-brand-rose transition-colors">
+            <span>Quais são as formas de pagamento aceitas?</span>
+            <span class="text-xl font-light text-brand-rose transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
+            Aceitamos PIX, dinheiro e cartão de crédito/débito. Ofertas especiais relâmpago podem ter condições exclusivas para pagamento à vista no PIX ou dinheiro.
+          </p>
+        </details>
+
+        <details class="group py-5">
+          <summary class="flex items-center justify-between cursor-pointer text-sm sm:text-base font-semibold text-brand-ink hover:text-brand-rose transition-colors">
+            <span>Como funciona a troca caso precise de outro tamanho?</span>
+            <span class="text-xl font-light text-brand-rose transition-transform group-open:rotate-45">+</span>
+          </summary>
+          <p class="mt-3 text-xs sm:text-sm text-brand-muted leading-relaxed">
+            Você pode solicitar a troca por outro tamanho ou peça disponível em estoque em até 7 dias corridos após o recebimento, desde que o produto esteja sem marcas de uso e com a etiqueta original fixada.
+          </p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Localização & Contato -->
+  <section id="localizacao" class="max-w-7xl mx-auto px-4 sm:px-8 py-16 sm:py-24">
+    <div class="grid lg:grid-cols-12 border border-neutral-200 bg-white">
+      <div class="lg:col-span-5 p-8 sm:p-12 flex flex-col justify-center space-y-6">
+        <span class="text-[11px] font-semibold uppercase tracking-[0.24em] text-brand-rose">Onde Estamos</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-brand-ink">Volta Redonda & Região</h2>
+        <p class="text-xs sm:text-sm text-brand-muted leading-relaxed">
+          Atendimento online personalizado com entrega rápida em toda a região Sul Fluminense.
+        </p>
+        <div class="space-y-2.5 text-xs sm:text-sm text-brand-ink">
+          <p><strong>Sede:</strong> Volta Redonda – RJ</p>
+          <p><strong>Entrega Grátis:</strong> Volta Redonda, Barra Mansa e Resende</p>
+          <p><strong>WhatsApp:</strong> (24) 99828-6508</p>
+          <p><strong>Instagram:</strong> @estilofitnessvr</p>
+        </div>
+        <div class="pt-2 flex flex-wrap gap-3">
+          <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Gostaria%20de%20combinar%20um%20pedido%20com%20entrega." target="_blank" rel="noopener" class="inline-block bg-brand-ink text-white text-xs font-semibold uppercase tracking-[0.18em] px-7 py-4 hover:bg-brand-rose transition-colors">
+            Chamar no WhatsApp
+          </a>
+          <a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="inline-block border border-brand-ink/30 text-brand-ink text-xs font-semibold uppercase tracking-[0.18em] px-6 py-4 hover:border-brand-ink transition-colors">
+            Catálogo Oficial
           </a>
         </div>
       </div>
-
-      <!-- Mapa Incorporado de Volta Redonda -->
-      <div class="lg:col-span-6 min-h-[320px] bg-brand-blush">
+      <div class="lg:col-span-7 min-h-[320px] bg-brand-surface">
         <iframe
           title="Mapa Volta Redonda RJ"
           src="https://www.openstreetmap.org/export/embed.html?bbox=-44.1450%2C-22.5450%2C-44.0750%2C-22.4950&layer=mapnik"
-          class="w-full h-full min-h-[320px] border-0 opacity-90"
+          class="w-full h-full min-h-[320px] border-0 grayscale contrast-105 opacity-90"
           loading="lazy">
         </iframe>
       </div>
     </div>
   </section>
 
-  <!-- Rodapé -->
-  <footer class="bg-brand-ink text-white/80 py-12 px-4 sm:px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 border-b border-white/10 pb-8">
-      <div class="flex items-center gap-3.5">
-        <div class="w-12 h-12 rounded-full bg-[#F7DFDC] flex items-center justify-center p-1">
-          <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="100" cy="100" r="76" fill="none" stroke="#683330" stroke-width="3"/>
-            <text x="54" y="132" fill="#683330" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="700">E</text>
-            <text x="96" y="132" fill="#683330" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="700">F</text>
-            <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="#683330" stroke-width="3.5" stroke-linecap="round"/>
-          </svg>
+  <!-- Footer Editorial Clean -->
+  <footer class="bg-brand-ink text-white/80 pt-16 pb-10 px-4 sm:px-8">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-white/10">
+      <div class="space-y-4">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-full bg-[#F7DFDC] flex items-center justify-center p-0.5">
+            <svg viewBox="0 0 200 200" class="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="100" cy="100" r="78" fill="none" stroke="#6E3532" stroke-width="3"/>
+              <text x="54" y="132" fill="#6E3532" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="700">E</text>
+              <text x="96" y="132" fill="#6E3532" font-family="'Cormorant Garamond', Georgia, serif" font-size="82" font-weight="700">F</text>
+              <path d="M 14,112 Q 58,128 100,104 T 186,96" fill="none" stroke="#6E3532" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="font-serif text-xl font-bold text-white tracking-wide">ESTILO FITNESS VR</span>
         </div>
-        <div>
-          <p class="font-serif text-xl font-bold text-white leading-none">Estilo Fitness VR</p>
-          <p class="text-xs text-white/60 mt-1">Moda Fitness Feminina • Volta Redonda - RJ</p>
-        </div>
+        <p class="text-xs text-white/60 leading-relaxed">
+          Linda, estilosa e endorfinada. Moda fitness feminina com caimento real e entrega gratuita em Volta Redonda, Barra Mansa e Resende.
+        </p>
       </div>
 
-      <div class="flex flex-wrap justify-center gap-6 text-sm">
-        <a href="#inicio" class="hover:text-white transition-colors">Início</a>
-        <a href="#catalogo" class="hover:text-white transition-colors">Catálogo</a>
-        <a href="#sobre" class="hover:text-white transition-colors">Sobre</a>
-        <a href="#faq" class="hover:text-white transition-colors">Perguntas Frequentes</a>
-        <a href="https://instagram.com/estilofitnessvr" target="_blank" rel="noopener" class="hover:text-white transition-colors">Instagram</a>
+      <div>
+        <h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-white mb-4">Navegação</h4>
+        <ul class="space-y-2.5 text-xs text-white/65">
+          <li><a href="#inicio" class="hover:text-white transition-colors">Início</a></li>
+          <li><a href="#catalogo" class="hover:text-white transition-colors">Catálogo Completo (27)</a></li>
+          <li><a href="javascript:void(0)" onclick="filtrarCategoria('ofertas')" class="hover:text-white transition-colors">Oferta Especial</a></li>
+          <li><a href="#sobre" class="hover:text-white transition-colors">Sobre a Marca</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-white mb-4">Ajuda & Suporte</h4>
+        <ul class="space-y-2.5 text-xs text-white/65">
+          <li><a href="https://wa.me/c/5524998286508" target="_blank" rel="noopener" class="hover:text-white transition-colors">Catálogo Oficial WhatsApp</a></li>
+          <li><a href="#faq" class="hover:text-white transition-colors">Perguntas Frequentes</a></li>
+          <li><a href="#localizacao" class="hover:text-white transition-colors">Área de Entrega Grátis</a></li>
+          <li><a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estilo%20Fitness%20VR%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener" class="hover:text-white transition-colors">WhatsApp: (24) 99828-6508</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-[11px] font-bold uppercase tracking-[0.2em] text-white mb-4">Redes Sociais</h4>
+        <div class="flex flex-col gap-2.5 items-start">
+          <a href="https://instagram.com/estilofitnessvr" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs text-white/80 hover:text-white border border-white/20 px-4 py-2.5">
+            Instagram @estilofitnessvr
+          </a>
+          <a href="https://wa.me/5524998286508" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-xs text-white/80 hover:text-white border border-white/20 px-4 py-2.5">
+            WhatsApp (24) 99828-6508
+          </a>
+        </div>
       </div>
     </div>
-    <div class="max-w-6xl mx-auto pt-6 text-center text-xs text-white/50">
-      © 2026 Estilo Fitness VR. Todos os direitos reservados.
+
+    <div class="max-w-7xl mx-auto pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-[11px] text-white/50">
+      <p>© 2026 Estilo Fitness VR — Volta Redonda, RJ. Todos os direitos reservados.</p>
+      <p>WhatsApp Oficial: (24) 99828-6508</p>
     </div>
   </footer>
 
-  <!-- Botão Flutuante de WhatsApp -->
-  <a href="https://wa.me/5524999999999?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estilo%20Fitness%20VR%20e%20gostaria%20de%20atendimento." target="_blank" rel="noopener" aria-label="Falar no WhatsApp" class="fixed bottom-5 right-5 z-50 bg-[#25D366] hover:bg-[#20bd5a] text-white px-4 py-3.5 rounded-full shadow-xl flex items-center gap-2.5 transition-transform hover:scale-105">
-    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824zm-3.423-14.416c-6.627 0-12 5.373-12 12s5.373 12 12 12 12-5.373 12-12-5.373-12-12-12zm.029 18.88c-1.161 0-2.305-.292-3.318-.844l-3.677.964.984-3.595c-.607-1.052-.927-2.246-.926-3.468.001-3.825 3.113-6.937 6.937-6.937 1.856.001 3.598.723 4.907 2.034 1.31 1.311 2.031 3.054 2.03 4.908-.001 3.825-3.113 6.938-6.937 6.938z"/></svg>
-    <span class="font-semibold text-sm hidden sm:inline">Falar no WhatsApp</span>
+  <!-- Botão Flutuante WhatsApp Oficial -->
+  <a href="https://wa.me/5524998286508?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20Estilo%20Fitness%20VR%20e%20gostaria%20de%20ver%20as%20op%C3%A7%C3%B5es%20dispon%C3%ADveis." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp (24) 99828-6508" class="fixed bottom-5 right-5 z-50 bg-[#25D366] hover:bg-[#1ebe5d] text-white p-3.5 rounded-full shadow-lg flex items-center gap-2.5 transition-transform hover:scale-105">
+    <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+    <span class="hidden sm:inline text-xs font-bold tracking-wide pr-1">(24) 99828-6508</span>
   </a>
 
-  <!-- Script de Filtro do Catálogo e Resolução Automática das Fotos -->
   <script>
-    // Busca automaticamente nas branches main/master e variações de nome no GitHub e local
+    // Menu Mobile Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenuBtn && mobileMenu) {
+      mobileMenuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Resolução automática das imagens do repositório GitHub e local (aceita tanto nome renomeado quanto original)
     const repoBases = [
       '',
       'https://raw.githubusercontent.com/FabricioM23/siteEstiloFitness/main/',
       'https://raw.githubusercontent.com/FabricioM23/siteEstiloFitness/master/'
     ];
-    const exts = ['.jpg', '.jpg.jpg', '.jpeg', '.png', '_5.jpg', '.jpg_5.jpg'];
+    const exts = ['.jpg', '.jpg.jpg', '.jpeg', '.png'];
 
-    document.querySelectorAll('.catalog-img').forEach((img) => {
-      const bases = img.getAttribute('data-base').split(',');
+    function carregarImagemComFallback(img, basesList) {
       const candidates = [];
       repoBases.forEach(prefix => {
-        bases.forEach(base => {
+        basesList.forEach(base => {
           exts.forEach(ext => {
             const url = prefix + base.trim() + ext;
             if (url !== img.getAttribute('src')) candidates.push(url);
@@ -801,32 +1600,94 @@
         }
       };
 
-      img.addEventListener('error', tryNext);
+      img.onerror = tryNext;
       if (img.complete && img.naturalWidth === 0) tryNext();
+    }
+
+    document.querySelectorAll('.catalog-img').forEach((img) => {
+      const bases = img.getAttribute('data-base').split(',');
+      carregarImagemComFallback(img, bases);
     });
 
+    // Mapa de ângulos (Frente / Perfil / Costas) para cada peça multi-ângulo
+    const mapaAngulos = {
+      'img-douglas-cinza': {
+        frente: ['conjunto-short-douglas-cinza-chumbo', '64d502b9-74f0-4cfd-b215-51260b08f7ca'],
+        perfil: ['conjunto-short-douglas-cinza-chumbo-perfil', 'fdaee543-3699-480c-bf5d-6487069b2b9b']
+      },
+      'img-douglas-marrom': {
+        frente: ['conjunto-short-douglas-marrom', '7eb6b118-c562-4c4d-87db-4abf07f0f0d5'],
+        perfil: ['conjunto-short-douglas-marrom-perfil', '713142c3-1b31-4ce0-9f3c-7b118046769b']
+      },
+      'img-bicolor-preto': {
+        frente: ['conjunto-short-bicolor-preto-caramelo', '0ea56a9c-7bb1-4782-a4ce-140191a074d0'],
+        perfil: ['conjunto-short-bicolor-preto-caramelo-perfil', 'bc3be9db-8642-40a8-bc74-75a3b6bb8679']
+      },
+      'img-bicolor-bordo': {
+        frente: ['conjunto-short-bicolor-bordo-oliva', '67578642-74ad-42a6-b5b8-3061a2ac3a10'],
+        perfil: ['conjunto-short-bicolor-bordo-oliva-perfil', '446bd0e2-bb76-4697-b80d-b52b8b2f8025']
+      },
+      'img-gota-offwhite': {
+        frente: ['conjunto-legging-gota-offwhite-preto', '2f8d3ed3-f2ba-4615-bd03-a107fbb719db'],
+        perfil: ['conjunto-legging-gota-offwhite-preto-perfil', 'bc135595-8d18-40d2-a693-490be608a662']
+      },
+      'img-gota-terracota': {
+        frente: ['conjunto-legging-gota-terracota-preto', '2f40d485-a567-4cbe-b14c-4df3588fa8ff'],
+        perfil: ['conjunto-legging-gota-terracota-preto-perfil', '91ba864b-1b52-4214-a471-8bb9f0d599aa'],
+        costas: ['conjunto-legging-gota-terracota-preto-costas', '5684465d-a301-4ae0-8bd7-9fe63b922b5a']
+      },
+      'img-regata-preto': {
+        frente: ['conjunto-regata-dry-short-preto', '9ce90f4a-a2c4-46f6-ac0e-f6d502f20f0f'],
+        costas: ['conjunto-regata-dry-short-preto-costas', 'e4ddf85a-602e-4550-bb9d-de312e5632b1']
+      }
+    };
+
+    function trocarFoto(imgId, btnClass, angulo, btn) {
+      const img = document.getElementById(imgId);
+      if (!img || !mapaAngulos[imgId] || !mapaAngulos[imgId][angulo]) return;
+      document.querySelectorAll('.' + btnClass).forEach(b => {
+        b.classList.remove('bg-brand-ink', 'text-white');
+        b.classList.add('text-brand-ink/70');
+      });
+      btn.classList.add('bg-brand-ink', 'text-white');
+      btn.classList.remove('text-brand-ink/70');
+
+      const bases = mapaAngulos[imgId][angulo];
+      img.src = bases[0] + '.jpg';
+      carregarImagemComFallback(img, bases);
+    }
+
+    // Filtro do Catálogo
     const filterButtons = document.querySelectorAll('.filter-btn');
     const productCards = document.querySelectorAll('.product-card');
 
+    function filtrarCategoria(filter) {
+      filterButtons.forEach(b => {
+        if (b.getAttribute('data-filter') === filter) {
+          b.classList.add('bg-brand-ink', 'text-white');
+          b.classList.remove('bg-brand-surface', 'text-brand-ink/70', 'border', 'border-neutral-200');
+        } else {
+          b.classList.remove('bg-brand-ink', 'text-white');
+          b.classList.add('bg-brand-surface', 'text-brand-ink/70', 'border', 'border-neutral-200');
+        }
+      });
+
+      productCards.forEach(card => {
+        const categories = card.getAttribute('data-category');
+        if (filter === 'todos' || categories.includes(filter)) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      const catalogoSec = document.getElementById('catalogo');
+      if (catalogoSec) catalogoSec.scrollIntoView({ behavior: 'smooth' });
+    }
+
     filterButtons.forEach(btn => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
-          b.classList.remove('rose-gradient', 'text-white', 'shadow-sm');
-          b.classList.add('bg-white', 'text-brand-muted', 'border', 'border-brand-blushDark');
-        });
-        btn.classList.add('rose-gradient', 'text-white', 'shadow-sm');
-        btn.classList.remove('bg-white', 'text-brand-muted', 'border', 'border-brand-blushDark');
-
-        const filter = btn.getAttribute('data-filter');
-
-        productCards.forEach(card => {
-          const categories = card.getAttribute('data-category');
-          if (filter === 'todos' || categories.includes(filter)) {
-            card.style.display = 'flex';
-          } else {
-            card.style.display = 'none';
-          }
-        });
+        filtrarCategoria(btn.getAttribute('data-filter'));
       });
     });
   </script>
